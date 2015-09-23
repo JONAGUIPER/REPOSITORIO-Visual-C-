@@ -48,15 +48,7 @@ namespace GestorAlumnos2
                     }
                 case 2:
                     {
-                        Console.WriteLine("******************");
-                        Console.WriteLine("* Añadir Alumnos *");
-                        Console.WriteLine("******************");
-                        Alumno al = new Alumno();
-                        Console.WriteLine("Introduzca Nombre");
-                        al.Nombre=Console.ReadLine();
-                        Console.WriteLine("Introduzca Apellidos");
-                        al.Apellido = Console.ReadLine();
-                        listaAlumnos.AddAlumno(al);
+                        AdicionarAlumno();
                         break;
                     }
                 case 3:
@@ -69,13 +61,11 @@ namespace GestorAlumnos2
                         Console.WriteLine("Opción Inválida");
                         break;
                     }
-
             }
             
         }
         private static void MostrarAlumnos(IList <Alumno> alumnos)
         {
-
             Alumno al = null;
             Console.WriteLine("*******************");
             Console.WriteLine("*  Lista Alumnos  *");
@@ -85,6 +75,19 @@ namespace GestorAlumnos2
                 al=alumnos.ElementAt(i);
                 Console.WriteLine(i+" "+al.Nombre+" "+al.Apellido);
             }
+        }
+
+        private static void AdicionarAlumno()
+        {
+            Console.WriteLine("******************");
+            Console.WriteLine("* Añadir Alumnos *");
+            Console.WriteLine("******************");
+            Alumno al = new Alumno();
+            Console.WriteLine("Introduzca Nombre");
+            al.Nombre = Console.ReadLine();
+            Console.WriteLine("Introduzca Apellidos");
+            al.Apellido = Console.ReadLine();
+            listaAlumnos.AddAlumno(al);
         }
     }
 }
