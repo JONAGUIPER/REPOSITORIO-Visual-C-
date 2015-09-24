@@ -16,7 +16,19 @@ namespace GestorAlumnos2
 
         public Coche()
         {
-
+            NBastidor = "S/N";
+            Marca = "Mazda";
+            Modelo = "2015";
+            NVelocidades = 5;
+            FMatricula = DateTime.Now;
+        }
+        public Coche(string marca,string modelo)
+        {
+            NBastidor = "S/N";
+            Marca = marca;
+            Modelo = modelo;
+            NVelocidades = 5;
+            FMatricula = DateTime.Now;
         }
         public string NBastidor
         {
@@ -44,6 +56,13 @@ namespace GestorAlumnos2
             get{return fMatricula;}
 
             set{fMatricula = value;}
+        }
+
+        public short NVelocidades
+        {
+            get{return nVelocidades;}
+
+            set{nVelocidades = value;}
         }
     }
 }
