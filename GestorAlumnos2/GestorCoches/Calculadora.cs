@@ -23,7 +23,7 @@ namespace GestorCoches
         public static int Factorial(int numero1)
         {
             int resultado = 1;
-            while (numero1 > 1 && numero1!=0)
+            while (numero1 > 0)
             {
                 resultado *= numero1;
                 numero1--;
