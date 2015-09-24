@@ -90,5 +90,6 @@ namespace GestorAlumnos2
             al.Apellido = Console.ReadLine();
             listaAlumnos.AddAlumno(al);
         }
+       
     }
 }
