@@ -30,5 +30,14 @@ namespace GestorCoches
             }
             return resultado;
         }
+        public static int Potencia(int ibase,int exponente)
+        {
+            int resultado = 1;
+            for(int i=0; i < exponente; i++)
+            {
+                resultado*= ibase;
+            }
+            return resultado;
+        }
     }
 }
