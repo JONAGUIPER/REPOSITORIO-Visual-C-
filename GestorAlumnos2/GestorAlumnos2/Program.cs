@@ -79,6 +79,7 @@ namespace GestorAlumnos2
 
         private static void AdicionarAlumno()
         {
+            Console.Clear();
             Console.WriteLine("******************");
             Console.WriteLine("* Añadir Alumnos *");
             Console.WriteLine("******************");

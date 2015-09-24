@@ -48,7 +48,15 @@ namespace GestorAlumnos2
         public DateTime FechaNacimiento
         {
             get{return fechaNacimiento;}
-            set{fechaNacimiento = value;}
+            set{
+                if(value<=DateTime.Now.AddYears(-18)) {
+                    Console.WriteLine("posee menos de 18 Años!!!");
+                }
+                else
+                {
+                    fechaNacimiento = value;
+                }
+                }
         }
 
     }
