@@ -22,6 +22,14 @@ namespace GestorAlumnos2
             this.Email = "";
             this.FechaNacimiento = DateTime.Now;
         }
+        public Alumno(string nombre,string apellido)
+        {
+            this.Nombre = nombre;
+            this.Apellido = apellido;
+            this.Telefono = "94";
+            this.Email = "";
+            this.FechaNacimiento = DateTime.Now.AddYears(19);
+        }
         public string Nombre
         {
             get{ return nombre;}
