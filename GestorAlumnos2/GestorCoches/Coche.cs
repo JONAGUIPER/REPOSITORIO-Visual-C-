@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GestorAlumnos2
+namespace GestorCoches
 {
     class Coche
     {
+        private static int numero = 0;
         private string nBastidor;
         private string marca;
         private string modelo;
@@ -16,6 +17,7 @@ namespace GestorAlumnos2
 
         public Coche()
         {
+            numero++;
             NBastidor = "S/N";
             Marca = "Mazda";
             Modelo = "2015";
@@ -30,6 +32,7 @@ namespace GestorAlumnos2
             NVelocidades = 5;
             FMatricula = DateTime.Now;
         }
+        
         public string NBastidor
         {
             get{return nBastidor;}
@@ -63,6 +66,11 @@ namespace GestorAlumnos2
             get{return nVelocidades;}
 
             set{nVelocidades = value;}
+        }
+
+        public static int Numero
+        {
+            get{return numero;}
         }
     }
 }
