@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiCalculator", "MiCalculator\MiCalculator.csproj", "{B6C5C96E-0ECC-42B3-B748-7DB0FB6133E0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculadoraTeclas", "CalculadoraTeclas\CalculadoraTeclas.csproj", "{668DAD0A-58CE-4416-A5EF-191142436D72}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B6C5C96E-0ECC-42B3-B748-7DB0FB6133E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6C5C96E-0ECC-42B3-B748-7DB0FB6133E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6C5C96E-0ECC-42B3-B748-7DB0FB6133E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{668DAD0A-58CE-4416-A5EF-191142436D72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{668DAD0A-58CE-4416-A5EF-191142436D72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{668DAD0A-58CE-4416-A5EF-191142436D72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{668DAD0A-58CE-4416-A5EF-191142436D72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
