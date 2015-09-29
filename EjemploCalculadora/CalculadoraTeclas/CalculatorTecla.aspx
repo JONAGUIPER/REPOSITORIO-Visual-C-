@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CalculatorTecla.aspx.cs" Inherits="CalculadoraTeclas.CalculatorTecla" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" Trace="true" CodeBehind="CalculatorTecla.aspx.cs" Inherits="CalculadoraTeclas.CalculatorTecla" %>
 
 <!DOCTYPE html>
 

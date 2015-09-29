@@ -14,7 +14,8 @@ namespace CalculadoraTeclas
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Trace.Write("La primera traza");
+            Trace.Warn("La otra traza resaltada");
         }
         private string GetData()
         {
