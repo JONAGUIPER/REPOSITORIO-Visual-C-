@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -34,6 +35,17 @@ namespace TiposMetodos
             nombreCompleto[0] = "Jon Ander";
             nombreCompleto[1] = "Aguinaco";
             nombreCompleto[2] = "Peraza";
+            try
+            {
+                nombreCompleto[3] = "creemos una excepcion";
+            }catch(Exception ex)
+            {
+                string directorio = @"C:\Users\Desarrollo web\Desktop\JON A. AGUINACO\REPOSITORIO\REPOSITORIO-Visual-C-\Ejemplo7\TextException.txt";
+                string info = "qwerty"+ ex.Message + "\r\n" + ex.StackTrace + "\r\n";
+                File.AppendAllText(directorio, info);
+                txtExcepcion.Text = ex.Message;
+            }
+
             nombrePersona = nombreCompleto[0];
             sueldoPersona = 2300F;
 
@@ -43,14 +55,14 @@ namespace TiposMetodos
             ShowPersonaData();
 
             txtNombreCompleto.Text = ConcatenarNombreCompleto(nombreCompleto);
-            txtApellidos.Text = ConcatenarNombreCompleto(nombreCompleto[1],nombreCompleto[2]);
+            txtApellidos.Text = ConcatenarNombreCompleto(nombreCompleto[1], nombreCompleto[2]);
 
             txtImpuestoDefecto.Text = CalcularImpuesto(sueldoPersona).ToString();
-            txtImpuestoEstablecido.Text = CalcularImpuesto(sueldoPersona,0.15F).ToString();
+            txtImpuestoEstablecido.Text = CalcularImpuesto(sueldoPersona, 0.15F).ToString();
 
             int mayor = 0;
-            
-            txtResultadoEdad.Text = TryMayor(70, 70, out mayor).ToString()+" "+mayor;
+
+            txtResultadoEdad.Text = TryMayor(70, 70, out mayor).ToString() + " " + mayor;
 
             //Obtiene un valor que indica si la página se está mostrando por primera vez o si se está cargando como respuesta a un postback.
             if (Page.IsPostBack)
@@ -83,7 +95,7 @@ namespace TiposMetodos
 
         //usando este tipo de metodos permite trabajar con un numero indefinido de PARAMETROS, de manera que trabajara con todos los parametros que se envien al metodo
         //Importante, todos los parametros deben ser del mismo tipo
-        private string ConcatenarNombreCompleto (params string[] nombres)
+        private string ConcatenarNombreCompleto(params string[] nombres)
         {
             string nombreConcatenado = String.Empty;
             for (int i = 0; i < nombres.Length; i++)
@@ -105,18 +117,18 @@ namespace TiposMetodos
         private bool TryMayor(int edad1, int edad2, out int edadMayor)
         {
             bool iguales = false;
-            if (edad1>edad2)
+            if (edad1 > edad2)
             {
                 edadMayor = edad1;
             }
-            else if(edad2>edad1)
+            else if (edad2 > edad1)
             {
                 edadMayor = edad2;
             }
             else
             {
                 edadMayor = 0;
-                iguales= true;
+                iguales = true;
             }
             return iguales;
         }

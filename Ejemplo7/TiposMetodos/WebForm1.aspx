@@ -44,6 +44,9 @@
         <br />
         <asp:Label ID="lblResultadoEdad" runat="server" Text="Prueba de Metodos con out:" Width="150px"></asp:Label>
         <asp:TextBox ID="txtResultadoEdad" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="lblExcepcion" runat="server" Text="Mensaje de excepcion" Width="150px"></asp:Label>
+        <asp:TextBox ID="txtExcepcion" runat="server"></asp:TextBox>
     </form>
 </body>
 </html>
