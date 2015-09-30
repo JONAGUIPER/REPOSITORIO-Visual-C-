@@ -29,7 +29,21 @@
         <br />
         <asp:Label ID="lblFechaNacimiento" runat="server" Text="Fecha de Nacimiento" Width="150px"></asp:Label>
         <asp:TextBox ID="txtFechadeNacimiento" runat="server"></asp:TextBox>
-
+        <br />
+        <asp:Label ID="lblNombreCompleto" runat="server" Text="Su Nombre Completo es:" Width="150px"></asp:Label>
+        <asp:TextBox ID="txtNombreCompleto" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="lblApellidos" runat="server" Text="Sus Apellidos son:" Width="150px"></asp:Label>
+        <asp:TextBox ID="txtApellidos" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="lblImpuestoDefecto" runat="server" Text="Impuesto por defecto a pagar" Width="150px"></asp:Label>
+        <asp:TextBox ID="txtImpuestoDefecto" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="lblImpuestoEstablecido" runat="server" Text="Impuesto establecido a pagar" Width="150px"></asp:Label>
+        <asp:TextBox ID="txtImpuestoEstablecido" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="lblResultadoEdad" runat="server" Text="Prueba de Metodos con out:" Width="150px"></asp:Label>
+        <asp:TextBox ID="txtResultadoEdad" runat="server"></asp:TextBox>
     </form>
 </body>
 </html>

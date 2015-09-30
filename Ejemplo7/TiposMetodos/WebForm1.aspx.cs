@@ -38,7 +38,20 @@ namespace TiposMetodos
             sueldoPersona = 2300F;
 
             //Llamar a un metodo que muestre los datos de la persona en el formulario
-            ShowPersonaData( nombreCompleto, edadPersona, sueldoPersona,fechaNacimiento);
+            //ShowPersonaData(nombreCompleto, edadPersona, sueldoPersona, fechaNacimiento);
+
+            ShowPersonaData();
+
+            txtNombreCompleto.Text = ConcatenarNombreCompleto(nombreCompleto);
+            txtApellidos.Text = ConcatenarNombreCompleto(nombreCompleto[1],nombreCompleto[2]);
+
+            txtImpuestoDefecto.Text = CalcularImpuesto(sueldoPersona).ToString();
+            txtImpuestoEstablecido.Text = CalcularImpuesto(sueldoPersona,0.15F).ToString();
+
+            int mayor = 0;
+            
+            txtResultadoEdad.Text = TryMayor(70, 70, out mayor).ToString()+" "+mayor;
+
             //Obtiene un valor que indica si la página se está mostrando por primera vez o si se está cargando como respuesta a un postback.
             if (Page.IsPostBack)
             {
@@ -47,7 +60,7 @@ namespace TiposMetodos
         }
         //crear un método que muestre en el formulario los datos de la persona
         private void ShowPersonaData(
-            string[] nombreCompleto, byte edadPersona, 
+            string[] nombreCompleto, byte edadPersona,
             float sueldoPersona, DateTime fechaNacimiento)
         {
             txtNombre.Text = nombreCompleto[0];
@@ -56,6 +69,56 @@ namespace TiposMetodos
             txtEdad.Text = edadPersona.ToString();
             txtFechadeNacimiento.Text = fechaNacimiento.ToShortDateString();
             txtSueldo.Text = sueldoPersona.ToString();
+        }
+        //Crear una sobrecarga del metodo anterior...
+        private void ShowPersonaData()
+        {
+            txtNombre.Text = nombreCompleto[0];
+            txtApellido1.Text = nombreCompleto[1];
+            txtApellido2.Text = nombreCompleto[2];
+            txtEdad.Text = edadPersona.ToString();
+            //txtFechadeNacimiento.Text = fechaNacimiento.ToShortDateString();
+            txtSueldo.Text = sueldoPersona.ToString();
+        }
+
+        //usando este tipo de metodos permite trabajar con un numero indefinido de PARAMETROS, de manera que trabajara con todos los parametros que se envien al metodo
+        //Importante, todos los parametros deben ser del mismo tipo
+        private string ConcatenarNombreCompleto (params string[] nombres)
+        {
+            string nombreConcatenado = String.Empty;
+            for (int i = 0; i < nombres.Length; i++)
+            {
+                nombreConcatenado += nombres[i] + " ";
+            }
+            //Trim elimina los espacios al comienzo y final de la cadena de texto
+            return nombreConcatenado.Trim();
+        }
+
+        //metodo con parametro opcional: se le asigna al parametro opcional un valor por defecto, si al llamarlo se pasa al toma el valor pasado sino el valor por defecto
+        private float CalcularImpuesto(float sueldo, float impuesto = IMPUESTO)
+        {
+            return sueldo * impuesto;
+        }
+
+        //Metodo con salidas adicionale: se establece un parametro por donde sale un valor a demas de la salida return normal
+        //este metodo evia la edad mayor por: edadMayor, y retorna false, mientras que si son iguales retorna true y en edadMayor=0
+        private bool TryMayor(int edad1, int edad2, out int edadMayor)
+        {
+            bool iguales = false;
+            if (edad1>edad2)
+            {
+                edadMayor = edad1;
+            }
+            else if(edad2>edad1)
+            {
+                edadMayor = edad2;
+            }
+            else
+            {
+                edadMayor = 0;
+                iguales= true;
+            }
+            return iguales;
         }
     }
 }
