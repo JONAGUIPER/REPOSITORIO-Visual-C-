@@ -38,6 +38,9 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.txtInsertar = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.Button();
+            this.lblPath = new System.Windows.Forms.Label();
+            this.btnFormAbrir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblMisDocumentos
@@ -74,11 +77,12 @@
             this.cbDirectorios2.Name = "cbDirectorios2";
             this.cbDirectorios2.Size = new System.Drawing.Size(121, 21);
             this.cbDirectorios2.TabIndex = 3;
+            this.cbDirectorios2.SelectedIndexChanged += new System.EventHandler(this.cbDirectorios2_SelectedIndexChanged);
             // 
             // lblAcceso
             // 
             this.lblAcceso.AutoSize = true;
-            this.lblAcceso.Location = new System.Drawing.Point(16, 58);
+            this.lblAcceso.Location = new System.Drawing.Point(13, 54);
             this.lblAcceso.Name = "lblAcceso";
             this.lblAcceso.Size = new System.Drawing.Size(103, 13);
             this.lblAcceso.TabIndex = 4;
@@ -96,7 +100,7 @@
             // 
             // txtEditor
             // 
-            this.txtEditor.Location = new System.Drawing.Point(13, 85);
+            this.txtEditor.Location = new System.Drawing.Point(13, 122);
             this.txtEditor.Multiline = true;
             this.txtEditor.Name = "txtEditor";
             this.txtEditor.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -105,7 +109,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(301, 41);
+            this.btnGuardar.Location = new System.Drawing.Point(301, 70);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 7;
@@ -115,7 +119,7 @@
             // 
             // txtInsertar
             // 
-            this.txtInsertar.Location = new System.Drawing.Point(13, 258);
+            this.txtInsertar.Location = new System.Drawing.Point(13, 295);
             this.txtInsertar.Multiline = true;
             this.txtInsertar.Name = "txtInsertar";
             this.txtInsertar.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -124,7 +128,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(301, 292);
+            this.btnAgregar.Location = new System.Drawing.Point(301, 329);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 9;
@@ -132,11 +136,42 @@
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Location = new System.Drawing.Point(13, 329);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(75, 23);
+            this.btnCerrar.TabIndex = 10;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // lblPath
+            // 
+            this.lblPath.AutoEllipsis = true;
+            this.lblPath.Location = new System.Drawing.Point(16, 67);
+            this.lblPath.Name = "lblPath";
+            this.lblPath.Size = new System.Drawing.Size(279, 50);
+            this.lblPath.TabIndex = 11;
+            // 
+            // btnFormAbrir
+            // 
+            this.btnFormAbrir.Location = new System.Drawing.Point(301, 41);
+            this.btnFormAbrir.Name = "btnFormAbrir";
+            this.btnFormAbrir.Size = new System.Drawing.Size(75, 23);
+            this.btnFormAbrir.TabIndex = 12;
+            this.btnFormAbrir.Text = "Abrir Form";
+            this.btnFormAbrir.UseVisualStyleBackColor = true;
+            this.btnFormAbrir.Click += new System.EventHandler(this.btnFormAbrir_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(406, 325);
+            this.ClientSize = new System.Drawing.Size(390, 364);
+            this.Controls.Add(this.btnFormAbrir);
+            this.Controls.Add(this.lblPath);
+            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.txtInsertar);
             this.Controls.Add(this.btnGuardar);
@@ -167,6 +202,9 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.TextBox txtInsertar;
         private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Label lblPath;
+        private System.Windows.Forms.Button btnFormAbrir;
     }
 }
 

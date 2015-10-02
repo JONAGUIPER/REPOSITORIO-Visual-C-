@@ -76,12 +76,13 @@ namespace WindowsFormsApplication1
             {
                 txtEditor.Text = File.ReadAllText(ubicacion);
             }
+
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             string ubicacion = RUTA + @"\" + cbDirectorios.Text + @"\" + cbDirectorios2.Text;
-            if (MessageBox.Show("Desea guardar el Archivo?","Guardar",MessageBoxButtons.YesNo,MessageBoxIcon.Question)==DialogResult.Yes)
+            if (MessageBox.Show("Desea guardar el Archivo?", "Guardar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 File.WriteAllText(ubicacion, txtEditor.Text);
             }
@@ -90,7 +91,33 @@ namespace WindowsFormsApplication1
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             string ubicacion = RUTA + @"\" + cbDirectorios.Text + @"\" + cbDirectorios2.Text;
-            File.AppendAllText(RUTA, txtInsertar.Text);
+            File.AppendAllText(ubicacion, "\r\n" + txtInsertar.Text);
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void cbDirectorios2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblPath.Text = "Se encuentra en: " + Path.GetFullPath(cbDirectorios2.Text);
+        }
+
+        private void btnFormAbrir_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog miFormularioAbrir = new OpenFileDialog();
+            miFormularioAbrir.Title = "Indique el Archivo a Abrir";
+            miFormularioAbrir.Filter = "Word (*.doc)|*.doc|Texto (*.txt)|*.txt|Todos los archivos(*.*)|*.*;";
+
+            miFormularioAbrir.ShowDialog();
+            string archivo = miFormularioAbrir.FileName;
+            if (archivo != string.Empty)
+            {
+                txtEditor.Text = File.ReadAllText(archivo);
+                lblPath.Text = archivo;
+            }
+
         }
     }
 }
