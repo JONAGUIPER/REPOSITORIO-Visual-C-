@@ -1,0 +1,3 @@
+﻿Índice fuera de los límites de la matriz.
+   en TiposMetodos.WebForm1.Page_Load(Object sender, EventArgs e) en C:\Users\Desarrollo web\Desktop\JON A. AGUINACO\REPOSITORIO\REPOSITORIO-Visual-C-\Ejemplo7\TiposMetodos\WebForm1.aspx.cs:línea 40qwertyÍndice fuera de los límites de la matriz.
+   en TiposMetodos.WebForm1.Page_Load(Object sender, EventArgs e) en C:\Users\Desarrollo web\Desktop\JON A. AGUINACO\REPOSITORIO\REPOSITORIO-Visual-C-\Ejemplo7\TiposMetodos\WebForm1.aspx.cs:línea 40
