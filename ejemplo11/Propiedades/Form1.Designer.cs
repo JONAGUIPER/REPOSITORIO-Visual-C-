@@ -35,6 +35,7 @@
             this.txtNombreAlumno = new System.Windows.Forms.TextBox();
             this.btnAnterior = new System.Windows.Forms.Button();
             this.btnProximo = new System.Windows.Forms.Button();
+            this.btnForm2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAnadirAlumno
@@ -100,11 +101,22 @@
             this.btnProximo.UseVisualStyleBackColor = true;
             this.btnProximo.Click += new System.EventHandler(this.btnProximo_Click);
             // 
+            // btnForm2
+            // 
+            this.btnForm2.Location = new System.Drawing.Point(197, 93);
+            this.btnForm2.Name = "btnForm2";
+            this.btnForm2.Size = new System.Drawing.Size(75, 23);
+            this.btnForm2.TabIndex = 7;
+            this.btnForm2.Text = "Ir form2";
+            this.btnForm2.UseVisualStyleBackColor = true;
+            this.btnForm2.Click += new System.EventHandler(this.btnForm2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(284, 124);
+            this.Controls.Add(this.btnForm2);
             this.Controls.Add(this.btnProximo);
             this.Controls.Add(this.btnAnterior);
             this.Controls.Add(this.txtNombreAlumno);
@@ -129,6 +141,7 @@
         private System.Windows.Forms.TextBox txtNombreAlumno;
         private System.Windows.Forms.Button btnAnterior;
         private System.Windows.Forms.Button btnProximo;
+        private System.Windows.Forms.Button btnForm2;
     }
 }
 

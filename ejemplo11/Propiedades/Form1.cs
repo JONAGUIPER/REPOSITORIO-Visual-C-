@@ -17,18 +17,10 @@ namespace Propiedades
 
             InitializeComponent();
 
-            alumnos2 = new List<Alumno>()
-            {
-                new Alumno() {NombreAlumno="Martin" },
-                new Alumno() {NombreAlumno="Idola" },
-                new Alumno() {NombreAlumno="Ana" },
-                new Alumno() {NombreAlumno="Patxi" },
-                new Alumno() {NombreAlumno="periko" }
-            };
+           
         }
 
         List<Alumno> Alumnos = new List<Alumno>();
-        List<Alumno> alumnos2;
 
         
 
@@ -81,7 +73,7 @@ namespace Propiedades
         private void Form1_Load(object sender, EventArgs e)
         {
             txtIdAlumno.Text = "1";
-            Alumno alumnoUno = new Alumno()
+            /*Alumno alumnoUno = new Alumno()
             {
                 NombreAlumno = "mike"
             };
@@ -89,9 +81,17 @@ namespace Propiedades
 
             Indexador indexador = new Indexador();
             var alumnoMartin = indexador["Martin"];
-            indexador.alumnos2.Add(new Alumno("Jon Ander"));
             indexador["periko"] = alumnoMartin;
-            indexador["Jon Ander"].NombreAlumno = "perikito";
+            indexador["Jon Ander"].NombreAlumno = "perikito";*/
+        }
+
+        private void btnForm2_Click(object sender, EventArgs e)
+        {
+            Form2 miFormulario = new Form2();
+            miFormulario.Text = "Muestra Indizadores";
+            miFormulario.BackColor = Color.Blue;
+            miFormulario.ForeColor = Color.WhiteSmoke;
+            miFormulario.Show();
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Propiedades
     {
         private int idAlumno;
         private string nombreAlumno;
-        private static int cuantos=1;
+        private static int cuantos = 0;
 
         public int IdAlumno
         {
@@ -33,6 +33,11 @@ namespace Propiedades
         {
             IdAlumno = ++cuantos;
             this.nombreAlumno = nombre;
+        }
+
+        public static string operator +(Alumno unAlumno, Alumno otroAlumno)
+        {
+            return unAlumno.nombreAlumno + " <--> " + otroAlumno.nombreAlumno;
         }
     }
 }
