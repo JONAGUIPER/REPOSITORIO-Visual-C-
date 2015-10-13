@@ -1,6 +1,6 @@
 ﻿namespace ManejoBibliotecaClases
 {
-    partial class NuevoCliente
+    partial class FormNuevoCliente
     {
         /// <summary>
         /// Required designer variable.
