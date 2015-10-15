@@ -39,13 +39,27 @@ namespace PruebaEjemplos
                 Label2.Text += "No se convierte porque entero NO es";
             }
 
+            string tipo = String.Empty;
+            if (pruebas.convertir2(tipo, out valor,out tipo))
+            {
+                Label6.Text += "Tipo:"+tipo + " su valor es:" + valor;
+            }
+            else
+            {
+                Label6.Text += "Tipo:" + tipo + " NO convertible";
+            }
+
             Label3.Text += pruebas.soyVirtual();
             Label4.Text += (new Ejemplos_1()).soyVirtual();
+            Label5.Text += pruebas.mediaInteligente(250, 30,20 ,10);
+
+            Label7.Text += Ejemplos_1.Power(2, 4).ToString();
+
         }
 
         private void EjecutaAlDispararEvento(object sender, MyEventArgs e)
         {
-            Label1.Text += "se disparo el evento " + sender.ToString()+"\r\n y con: "+e.Mensaje;
+            Label1.Text += "se disparo el evento " + sender.ToString()+"\n\r y con: "+e.Mensaje;
         }
     }
 }

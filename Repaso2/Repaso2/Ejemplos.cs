@@ -35,6 +35,8 @@ namespace Repaso2
         int CONSTANTE = 30;
         //Crear un Campo Privado
         private int campoPrivado = 20;
+        //crear una variable de solo lectura
+        private readonly DateTime hoy = DateTime.Today;
         //Crear un campo encapsulado...
         private int campoEmcapsulado;
 
@@ -96,11 +98,26 @@ namespace Repaso2
             }
         }
 
+        public bool convertir2(object incognito, out int valor, out string tipo)
+        {
+            Type tip = incognito.GetType();
+            tipo = tip.ToString();
+            if (tipo == "System.Int32")
+            {
+                valor = (int)incognito;
+                return true;
+            }
+            else
+            {
+                valor = 0;
+                return false;
+            }
+        }
 
         //crear un metodo que nos sume un numero de elementos variable
         public int Sumar(params int[] sumandos)
         {
-            
+
             int acumulador = 0;
             for (int i = 0; i < sumandos.Length; i++)
             {
@@ -133,7 +150,7 @@ namespace Repaso2
 
         /************************************************/
         //crear un evento
-        public delegate void delegado(Object sender,MyEventArgs arg);
+        public delegate void delegado(Object sender, MyEventArgs arg);
         public event delegado miEvento = null;
         //Por defecto podriamos crear el evento de esta manera usando como delegado el EventHandler
         //public event EventHandler miEvento = null;
@@ -142,20 +159,46 @@ namespace Repaso2
         public void generadorEvento(int valor)
         {
             Random aleatorio = new Random();
-            int val;
+            int val, contador = 0;
             do
             {
                 val = aleatorio.Next(1, 8000);
+                contador++;
                 if (val == valor)//he acabado la tarea
                 {
                     if (miEvento != null)
                     {
                         //Disparo el evento
-                        miEvento(this, new MyEventArgs("mensaje enviado a traves del EventArgs"));
+                        miEvento(this, new MyEventArgs("mensaje enviado a traves del EventArgs en la iteracion:" + contador));
                     }
                 }
 
             } while (valor != val);
+        }
+
+        //Crear un evento que recoja 3 valores de tipo int y avise cuando alguno sea menor del 50 % de la media
+        public int? mediaInteligente(params int[] valores)
+        {
+            int acumulador = 0;
+            foreach (int i in valores)
+            {
+                acumulador += i;
+            }
+            float media = acumulador / valores.Length;
+            int j = -1;
+            do
+            {
+                j++;
+            } while ((valores[j] >= media * 0.5) && (j < valores.Length));
+            if (j == valores.Length)
+            {
+                return null;
+            }
+            else
+            {
+                return valores[j];
+            }
+
         }
 
         //crear un metodo que se llame soyVirtual que se pueda sobreescribir en una clase derivada
@@ -174,7 +217,7 @@ namespace Repaso2
 
     }
     //creando una clase derivada de eventargs para enviar invormacion desde donde se origina el aevento al recptor del mismo: El FORM principal
-    public class MyEventArgs:EventArgs
+    public class MyEventArgs : EventArgs
     {
         //se crean las variables que se quieran
         public string Mensaje { get; set; }
@@ -188,11 +231,70 @@ namespace Repaso2
     //Crear una clase que se llame Ejemplos_1 y Su clase base sea Ejemplos
     public class Ejemplos_1 : Ejemplos
     {
+
+        //CREAR UN CONSTRUCTOR SIN PARAMETROS
+        public Ejemplos_1() : base()//esto llama al constructor SIN PARAMETROS sde la clase base y lo inicializa
+        {
+
+        }
+        public Ejemplos_1(int bNumero1, int bNumero2) : base(bNumero1, bNumero2)//esto llama al constructor CON PARAMETROS sde la clase base y lo inicializa
+        {
+
+        }
+        //sobreescribir el Objeto de la clase Base
         public override string soyVirtual()
         {
             //return base.soyVirtual(); //retorna el valor de la clase base
             return "No!! no puedo ser tu hijo!!";
 
+        }
+        //crear un metodo que haga hiding o ocultamiento de algun metodo de la clase base
+        public new bool convertir(object tipo, out int valor)
+        {
+            //hacer everything
+            valor = 0;
+            return true;
+
+        }
+        //crear una colleccion que funcione como una cola es decir FIFO
+        Queue<int> colaNumeros = new Queue<int>();
+        //Lo mismo para la pila
+        Stack<int> pilaNumeros = new Stack<int>();
+        //declarar variable para que pueda aceptar variable null
+        int? miNullable = null;
+        Nullable<int> tambienNullable = null;
+
+        //metodo con la sentencis ?:
+        public void elIfLineal()
+        {
+            int a = 3;
+            bool resultado = (a < 4) ? true : false;
+        }
+
+        //crear un indexer
+        public object this[int indice]
+        {
+            get { return new object(); }
+            set
+            { //algo para ingresar datos
+            }
+        }
+        public object this[string indice]
+        {
+            get { return new object(); }
+            set
+            { //algo para ingresar datos
+            }
+        }
+        //uso de yield para mostrar resultados parciales
+        public static System.Collections.Generic.IEnumerable<int> Power(int bas, int exp)
+        {
+            int acum = 1;
+            for (int i = 0; i < exp; i++)
+            {
+                acum *= bas;
+                yield return acum;
+            }
         }
     }
 }
