@@ -11,8 +11,13 @@
     <form id="form1" runat="server">
     <div>
     
-        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-        <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="Label1" runat="server" Text="Evento: "></asp:Label>
+        <br />
+        <asp:Label ID="Label2" runat="server" Text="Es entero o no: "></asp:Label>
+        <br />
+        <asp:Label ID="Label3" runat="server" Text="Virtual clase Base: "></asp:Label>
+        <br />
+        <asp:Label ID="Label4" runat="server" Text="Virtual clase Derivada: "></asp:Label>
     </div>
     </form>
 </body>

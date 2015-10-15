@@ -100,6 +100,7 @@ namespace Repaso2
         //crear un metodo que nos sume un numero de elementos variable
         public int Sumar(params int[] sumandos)
         {
+            
             int acumulador = 0;
             for (int i = 0; i < sumandos.Length; i++)
             {
@@ -124,7 +125,7 @@ namespace Repaso2
             int resultado = aleatorio.Next() + valor;
             if (resultado == 13)
             {
-                throw new System.ArgumentException("La suma con el numero aleatorio da como resultado 13");
+                throw new Exception("La suma con el numero aleatorio da como resultado 13");
             }
             return resultado;
 
@@ -132,8 +133,10 @@ namespace Repaso2
 
         /************************************************/
         //crear un evento
-        //public delegate void delegado(Object sender,EventArgs arg);
-        public event EventHandler miEvento = null;
+        public delegate void delegado(Object sender,MyEventArgs arg);
+        public event delegado miEvento = null;
+        //Por defecto podriamos crear el evento de esta manera usando como delegado el EventHandler
+        //public event EventHandler miEvento = null;
 
         //Crear un metodo que cuando se complete una tarea determinada lo lance; p.e: llegar a un numero en bucle...
         public void generadorEvento(int valor)
@@ -143,11 +146,12 @@ namespace Repaso2
             do
             {
                 val = aleatorio.Next(1, 8000);
-                if (val == valor)
+                if (val == valor)//he acabado la tarea
                 {
                     if (miEvento != null)
                     {
-                        miEvento(this, new EventArgs());
+                        //Disparo el evento
+                        miEvento(this, new MyEventArgs("mensaje enviado a traves del EventArgs"));
                     }
                 }
 
@@ -157,7 +161,7 @@ namespace Repaso2
         //crear un metodo que se llame soyVirtual que se pueda sobreescribir en una clase derivada
         public virtual string soyVirtual()
         {
-            return "soy virtual del padre";
+            return "soy TU PADRE";
         }
 
 
@@ -169,10 +173,26 @@ namespace Repaso2
         }
 
     }
+    //creando una clase derivada de eventargs para enviar invormacion desde donde se origina el aevento al recptor del mismo: El FORM principal
+    public class MyEventArgs:EventArgs
+    {
+        //se crean las variables que se quieran
+        public string Mensaje { get; set; }
+        //y los constructores necesarios
+        public MyEventArgs(string message)
+        {
+            Mensaje = message;
+        }
+    }
 
     //Crear una clase que se llame Ejemplos_1 y Su clase base sea Ejemplos
     public class Ejemplos_1 : Ejemplos
     {
+        public override string soyVirtual()
+        {
+            //return base.soyVirtual(); //retorna el valor de la clase base
+            return "No!! no puedo ser tu hijo!!";
 
+        }
     }
 }
