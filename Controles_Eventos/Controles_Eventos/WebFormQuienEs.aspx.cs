@@ -69,6 +69,8 @@ namespace Controles_Eventos
                 {
                     if (entrante.Contrasena == con)
                     {
+                        Session["nombreUsuario"] = txtUsuario.Text;
+                        Response.Redirect("Inicio.aspx");
                         lblPermiso.ForeColor = System.Drawing.Color.Green;
                         lblPermiso.Text = "BIENVENIDO!!!!";
                     }

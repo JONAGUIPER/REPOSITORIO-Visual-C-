@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace Controles_Eventos
 {
-    public partial class Inicio : System.Web.UI.Page
+    public partial class Register : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblBienvenida.Text += " " + Session["nombreUsuario"].ToString();
+
         }
     }
 }
