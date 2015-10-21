@@ -1,0 +1,53 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="FormMaestro.master.cs" Inherits="Controles_Eventos.FormMaestro" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title><%:Page.Title%></title>
+    
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    
+    
+    <asp:ContentPlaceHolder ID="head" runat="server">
+        <!--AQUI VAN TODOS LOS SCRIPTS Y DEMAS COSAS COMUNES-->
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <header>
+        <img src="images/color_banner_3.jpg" width="1024" height="80" />
+
+
+        <asp:ContentPlaceHolder ID="header" runat="server">
+            <!--AQUI VAN Los datos dinamicos para el header-->
+        </asp:ContentPlaceHolder>
+    </header>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                <!--ESPACIO PARA EL CONTENIDO DINAMICO-->
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <footer runat="server">
+            <p><%:DateTime.Now.Year %>- Power By Jonaguiper</p>
+
+            <asp:ContentPlaceHolder ID="Footer" runat="server">
+                <!--ESPACIO PARA EL FOOTER DINAMICO-->
+            </asp:ContentPlaceHolder>
+        </footer>
+    </form>
+
+</body>
+
+
+</html>
