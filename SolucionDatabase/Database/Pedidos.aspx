@@ -14,7 +14,7 @@
         <asp:Button ID="btnConectar" runat="server" OnClick="btnConectar_Click" style="height: 26px" Text="Conectar" />
         <asp:DropDownList ID="DropDownIds" runat="server">
         </asp:DropDownList>
-        <asp:Button ID="btnVer" runat="server" Text="Ver Pedidos" />
+        <asp:Button ID="btnVer" runat="server" Text="Ver Pedidos" OnClick="btnVer_Click" />
     
     </div>
         <asp:GridView ID="gridPedidos" runat="server">

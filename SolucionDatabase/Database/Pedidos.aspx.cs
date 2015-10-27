@@ -28,9 +28,9 @@ namespace Database
             SqlCommand miSelectComando = new SqlCommand();
             miSelectComando.CommandType = CommandType.Text;
             miSelectComando.CommandText = "SELECT CustomerID FROM Sales.Customer WHERE CustomerID BETWEEN @minimo AND @maximo";
-
-            miSelectComando.Parameters.Add("@minimo", SqlDbType.Int, 4).Value = 1;
-            miSelectComando.Parameters.Add("@maximo", SqlDbType.Int, 4).Value = 1000;
+            //miSelectComando.CommandText = "SELECT CustomerID FROM Sales.Customer";
+            miSelectComando.Parameters.Add("@minimo", SqlDbType.Int, 4).Value = 10000;
+            miSelectComando.Parameters.Add("@maximo", SqlDbType.Int, 4).Value = 15000;
 
             miSelectComando.Connection = micon;
 
@@ -48,5 +48,27 @@ namespace Database
             //cerrar conexion
             micon.Close();
         }
+
+        protected void btnVer_Click(object sender, EventArgs e)
+        {
+            int cliente= Convert.ToInt32(DropDownIds.SelectedItem.Text);
+            SqlConnection conexion = new SqlConnection();
+            conexion.ConnectionString = ConfigurationManager.ConnectionStrings["BaseDeDatosEnWebConfig"].ToString();
+            SqlCommand comando = new SqlCommand();
+            comando.CommandType = CommandType.Text;
+            comando.CommandText= "SELECT * FROM Sales.SalesOrderHeader WHERE CustomerID=@cliente";
+            comando.Parameters.Add("@cliente", SqlDbType.Int, 4).Value = cliente;
+            comando.Connection = conexion;
+            
+            SqlDataAdapter miDa = new SqlDataAdapter(comando);
+            conexion.Open();
+            DataSet miTabla = new DataSet("dsPedidos");
+            miDa.Fill(miTabla, "Clientes");
+            conexion.Close();
+            gridPedidos.DataSource = miTabla;
+            gridPedidos.DataMember = miTabla.Tables["Clientes"].ToString();
+            gridPedidos.DataBind();
+        }
+        
     }
 }
