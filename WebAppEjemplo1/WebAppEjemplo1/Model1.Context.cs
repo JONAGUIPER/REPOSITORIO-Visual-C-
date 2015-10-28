@@ -7,24 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebAppEjemplo1
+using System;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+
+public partial class AdventureWorks2014Entities : DbContext
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Infrastructure;
-    
-    public partial class AdventureWorks2014Entities : DbContext
+    public AdventureWorks2014Entities()
+        : base("name=AdventureWorks2014Entities")
     {
-        public AdventureWorks2014Entities()
-            : base("name=AdventureWorks2014Entities")
-        {
-        }
-    
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            throw new UnintentionalCodeFirstException();
-        }
-    
-        public DbSet<SalesOrderHeader> SalesOrderHeaders { get; set; }
     }
+
+    protected override void OnModelCreating(DbModelBuilder modelBuilder)
+    {
+        throw new UnintentionalCodeFirstException();
+    }
+
+    public DbSet<SalesOrderHeader> SalesOrderHeaders { get; set; }
 }

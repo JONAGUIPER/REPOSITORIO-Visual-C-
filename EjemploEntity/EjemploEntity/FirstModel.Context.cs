@@ -7,55 +7,52 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EjemploEntity
+using System;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+
+public partial class AdventureWorks2014Entities : DbContext
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Infrastructure;
-    
-    public partial class AdventureWorks2014Entities : DbContext
+    public AdventureWorks2014Entities()
+        : base("name=AdventureWorks2014Entities")
     {
-        public AdventureWorks2014Entities()
-            : base("name=AdventureWorks2014Entities")
-        {
-        }
-    
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            throw new UnintentionalCodeFirstException();
-        }
-    
-        public virtual DbSet<Address> Addresses { get; set; }
-        public virtual DbSet<AddressType> AddressTypes { get; set; }
-        public virtual DbSet<BusinessEntity> BusinessEntities { get; set; }
-        public virtual DbSet<BusinessEntityAddress> BusinessEntityAddresses { get; set; }
-        public virtual DbSet<BusinessEntityContact> BusinessEntityContacts { get; set; }
-        public virtual DbSet<ContactType> ContactTypes { get; set; }
-        public virtual DbSet<CountryRegion> CountryRegions { get; set; }
-        public virtual DbSet<EmailAddress> EmailAddresses { get; set; }
-        public virtual DbSet<Password> Passwords { get; set; }
-        public virtual DbSet<Person> People { get; set; }
-        public virtual DbSet<PersonPhone> PersonPhones { get; set; }
-        public virtual DbSet<PhoneNumberType> PhoneNumberTypes { get; set; }
-        public virtual DbSet<StateProvince> StateProvinces { get; set; }
-        public virtual DbSet<CountryRegionCurrency> CountryRegionCurrencies { get; set; }
-        public virtual DbSet<CreditCard> CreditCards { get; set; }
-        public virtual DbSet<Currency> Currencies { get; set; }
-        public virtual DbSet<CurrencyRate> CurrencyRates { get; set; }
-        public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<PersonCreditCard> PersonCreditCards { get; set; }
-        public virtual DbSet<SalesOrderDetail> SalesOrderDetails { get; set; }
-        public virtual DbSet<SalesOrderHeader> SalesOrderHeaders { get; set; }
-        public virtual DbSet<SalesOrderHeaderSalesReason> SalesOrderHeaderSalesReasons { get; set; }
-        public virtual DbSet<SalesPerson> SalesPersons { get; set; }
-        public virtual DbSet<SalesPersonQuotaHistory> SalesPersonQuotaHistories { get; set; }
-        public virtual DbSet<SalesReason> SalesReasons { get; set; }
-        public virtual DbSet<SalesTaxRate> SalesTaxRates { get; set; }
-        public virtual DbSet<SalesTerritory> SalesTerritories { get; set; }
-        public virtual DbSet<SalesTerritoryHistory> SalesTerritoryHistories { get; set; }
-        public virtual DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
-        public virtual DbSet<SpecialOffer> SpecialOffers { get; set; }
-        public virtual DbSet<SpecialOfferProduct> SpecialOfferProducts { get; set; }
-        public virtual DbSet<Store> Stores { get; set; }
     }
+
+    protected override void OnModelCreating(DbModelBuilder modelBuilder)
+    {
+        throw new UnintentionalCodeFirstException();
+    }
+
+    public virtual DbSet<Address> Addresses { get; set; }
+    public virtual DbSet<AddressType> AddressTypes { get; set; }
+    public virtual DbSet<BusinessEntity> BusinessEntities { get; set; }
+    public virtual DbSet<BusinessEntityAddress> BusinessEntityAddresses { get; set; }
+    public virtual DbSet<BusinessEntityContact> BusinessEntityContacts { get; set; }
+    public virtual DbSet<ContactType> ContactTypes { get; set; }
+    public virtual DbSet<CountryRegion> CountryRegions { get; set; }
+    public virtual DbSet<EmailAddress> EmailAddresses { get; set; }
+    public virtual DbSet<Password> Passwords { get; set; }
+    public virtual DbSet<Person> People { get; set; }
+    public virtual DbSet<PersonPhone> PersonPhones { get; set; }
+    public virtual DbSet<PhoneNumberType> PhoneNumberTypes { get; set; }
+    public virtual DbSet<StateProvince> StateProvinces { get; set; }
+    public virtual DbSet<CountryRegionCurrency> CountryRegionCurrencies { get; set; }
+    public virtual DbSet<CreditCard> CreditCards { get; set; }
+    public virtual DbSet<Currency> Currencies { get; set; }
+    public virtual DbSet<CurrencyRate> CurrencyRates { get; set; }
+    public virtual DbSet<Customer> Customers { get; set; }
+    public virtual DbSet<PersonCreditCard> PersonCreditCards { get; set; }
+    public virtual DbSet<SalesOrderDetail> SalesOrderDetails { get; set; }
+    public virtual DbSet<SalesOrderHeader> SalesOrderHeaders { get; set; }
+    public virtual DbSet<SalesOrderHeaderSalesReason> SalesOrderHeaderSalesReasons { get; set; }
+    public virtual DbSet<SalesPerson> SalesPersons { get; set; }
+    public virtual DbSet<SalesPersonQuotaHistory> SalesPersonQuotaHistories { get; set; }
+    public virtual DbSet<SalesReason> SalesReasons { get; set; }
+    public virtual DbSet<SalesTaxRate> SalesTaxRates { get; set; }
+    public virtual DbSet<SalesTerritory> SalesTerritories { get; set; }
+    public virtual DbSet<SalesTerritoryHistory> SalesTerritoryHistories { get; set; }
+    public virtual DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
+    public virtual DbSet<SpecialOffer> SpecialOffers { get; set; }
+    public virtual DbSet<SpecialOfferProduct> SpecialOfferProducts { get; set; }
+    public virtual DbSet<Store> Stores { get; set; }
 }
