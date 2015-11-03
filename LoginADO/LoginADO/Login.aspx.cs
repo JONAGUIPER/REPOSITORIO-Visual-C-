@@ -21,8 +21,11 @@ namespace LoginADO
         protected bool guardarCookie(string usuario)
         {
             Random aleatorio = new Random();
-            Response.Cookies["user"].Value = aleatorio.Next().ToString();
-            Response.Cookies["user"].Expires = DateTime.Now.AddMinutes(5);
+            //crear la COOKIE para combprobar la seguridad en las siguientes paginas (soloo para tiendas)
+            HttpCookie galleta = new HttpCookie("seguridad");
+            galleta["user"] = aleatorio.Next().ToString();
+            Response.Cookies.Add(galleta);
+            galleta.Expires = DateTime.Now.AddMinutes(5d);
             int filas = 0;
             try
             {
@@ -32,10 +35,11 @@ namespace LoginADO
                     SqlCommand comando = new SqlCommand();
                     comando.Connection = conexion;
                     comando.CommandType = CommandType.Text;
-                    comando.CommandText = "UPDATE sales.tUsuarios set galleta=@galleta,validez=@validez where usuario=@usuario";
+                    comando.CommandText = "UPDATE sales.tUsuarios set galleta=@galleta where usuario=@usuario";
+                    //comando.CommandText = "UPDATE sales.tUsuarios set galleta=@galleta,validez=@validez where usuario=@usuario";
                     comando.Parameters.Add("@usuario", SqlDbType.VarChar, 50).Value = usuario;
-                    comando.Parameters.Add("@galleta", SqlDbType.VarChar, 10).Value = Response.Cookies["user"].Value;
-                    comando.Parameters.Add("@validez", SqlDbType.DateTime, 8).Value = Convert.ToDateTime(Response.Cookies["user"].Expires);
+                    comando.Parameters.Add("@galleta", SqlDbType.VarChar, 10).Value = Request.Cookies["seguridad"]["user"].ToString();
+                    //comando.Parameters.Add("@validez", SqlDbType.DateTime, 8).Value = Convert.ToDateTime(Request.Cookies["user"].Expires);
                     conexion.Open();
                     filas = comando.ExecuteNonQuery();
                 }

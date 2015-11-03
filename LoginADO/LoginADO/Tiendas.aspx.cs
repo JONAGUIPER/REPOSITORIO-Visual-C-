@@ -14,8 +14,12 @@ namespace LoginADO
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (seguridad(Session["USER"].ToString()))
-            if (true)
+            if (Session["USER"]==null)//si no hay session redirecciona a login
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else if(seguridad(Session["USER"].ToString()))
+            //if (true)
             {
                 if (!Page.IsPostBack)
                 {
@@ -44,10 +48,24 @@ namespace LoginADO
 
         }
 
-        private bool seguridad(string user)
+        private bool seguridad(string user)//en el usuario se encuentra el valor del usuario que esta en la sesion actual
         {
             bool respuesta = false;
-            using (SqlConnection conexion = new SqlConnection())
+            string cookieValor = "";
+            DateTime cookieExpira;
+
+            if (Request.Cookies["seguridad"] != null)//sino existe: expiro, y me redirecciona a la pagina de login
+            {
+                cookieValor = Request.Cookies["seguridad"]["user"];
+                //actualizo el tiempo de vuida de la cookie
+                Response.Cookies["seguridad"].Expires = DateTime.Now.AddMinutes(5d);
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
+
+            using (SqlConnection conexion = new SqlConnection())//aqui busco en la base de datos si elvalor de la coockie  coinside con el valor de la sesion actual
             {
                 conexion.ConnectionString = ConfigurationManager.ConnectionStrings["AdventureWorks2014ConnectionString"].ToString();
                 SqlCommand comando = new SqlCommand();
@@ -59,7 +77,7 @@ namespace LoginADO
                 SqlDataReader lector = comando.ExecuteReader();
                 while (lector.Read())
                 {
-                    respuesta = (lector.GetString(0) == Response.Cookies["user"].Value)
+                    respuesta = (lector.GetString(0) == cookieValor)
                         && (lector.GetDateTime(1) >= DateTime.Now);
                 }
             }
@@ -92,10 +110,10 @@ namespace LoginADO
         protected void gvTiendas_SelectedIndexChanged(object sender, EventArgs e)
         {
             GridViewRow filaSeleccionada = (sender as GridView).SelectedRow;
-            txtNombre.Text=filaSeleccionada.Cells[2].Text;
-            txtPersonID.Text=filaSeleccionada.Cells[3].Text;
-            txtDemografia.Text=filaSeleccionada.Cells[4].Text;
-            txtModificacion.Text=filaSeleccionada.Cells[6].Text;
+            txtNombre.Text = filaSeleccionada.Cells[2].Text;
+            txtPersonID.Text = filaSeleccionada.Cells[3].Text;
+            txtDemografia.Text = filaSeleccionada.Cells[4].Text;
+            txtModificacion.Text = filaSeleccionada.Cells[6].Text;
         }
     }
 }
