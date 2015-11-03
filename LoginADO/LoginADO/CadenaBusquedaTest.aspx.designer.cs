@@ -10,7 +10,7 @@
 namespace LoginADO {
     
     
-    public partial class CadenaBusqueda {
+    public partial class CadenaBusquedaTest {
         
         /// <summary>
         /// Control form1.
@@ -22,21 +22,12 @@ namespace LoginADO {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Control txtCadena.
+        /// Control lblQSvalor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCadena;
-        
-        /// <summary>
-        /// Control btnEnviarXURL.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEnviarXURL;
+        protected global::System.Web.UI.WebControls.Label lblQSvalor;
     }
 }

@@ -69,6 +69,8 @@
     <Content Include="Cache.aspx" />
     <Content Include="CacheTest.aspx" />
     <Content Include="CadenaBusqueda.aspx" />
+    <Content Include="CadenaBusquedaTest.aspx" />
+    <Content Include="CadenaStringTestVisual.aspx" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
@@ -109,6 +111,20 @@
     </Compile>
     <Compile Include="CadenaBusqueda.aspx.designer.cs">
       <DependentUpon>CadenaBusqueda.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CadenaBusquedaTest.aspx.cs">
+      <DependentUpon>CadenaBusquedaTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CadenaBusquedaTest.aspx.designer.cs">
+      <DependentUpon>CadenaBusquedaTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CadenaStringTestVisual.aspx.cs">
+      <DependentUpon>CadenaStringTestVisual.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CadenaStringTestVisual.aspx.designer.cs">
+      <DependentUpon>CadenaStringTestVisual.aspx</DependentUpon>
     </Compile>
     <Compile Include="Clientes.aspx.cs">
       <DependentUpon>Clientes.aspx</DependentUpon>

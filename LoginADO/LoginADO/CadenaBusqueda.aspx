@@ -10,7 +10,8 @@
 <body>
     <form id="form1" runat="server">
     <div>
-    
+        <asp:TextBox ID="txtCadena" runat="server"></asp:TextBox>
+        <asp:Button ID="btnEnviarXURL" runat="server" Text="Enviar Query" OnClick="btnEnviarXURL_Click" />
     </div>
     </form>
 </body>

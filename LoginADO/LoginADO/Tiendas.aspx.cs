@@ -52,7 +52,7 @@ namespace LoginADO
         {
             bool respuesta = false;
             string cookieValor = "";
-            DateTime cookieExpira;
+            //DateTime cookieExpira;
 
             if (Request.Cookies["seguridad"] != null)//sino existe: expiro, y me redirecciona a la pagina de login
             {

@@ -7,16 +7,13 @@ using System.Web.UI.WebControls;
 
 namespace LoginADO
 {
-    public partial class CadenaBusqueda : System.Web.UI.Page
+    public partial class CadenaBusquedaTest : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-        protected void btnEnviarXURL_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("CadenaBusquedaTEst.aspx?QSvalor="+txtCadena.Text);
+            
+            lblQSvalor.Text += Request.QueryString["QSvalor"];
+            
         }
     }
 }
