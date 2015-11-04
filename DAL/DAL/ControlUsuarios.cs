@@ -14,16 +14,21 @@ namespace DAL
         {
             bool registrado = false;
             string usu = null;
+            //string cadenaConexion = @"Data Source=.\sqlexpress;Initial Catalog=AdventureWorks2014;Integrated Security=True";
+            localhost.WSConexiones miWSCon = new localhost.WSConexiones();
             //Autenticar Usuario
             //Buscar si el usuario y contraseña existen en algun registro de la BD de tUsuarios
             //conexion a da bd tUsuarios
-            using (SqlConnection conexion = new SqlConnection(@"Data Source=.\sqlexpress;Initial Catalog=AdventureWorks2014;Integrated Security=True"))
+            using (SqlConnection conexion = new SqlConnection())
             {
+                //conexion.ConnectionString = cadenaConexion;
+                conexion.ConnectionString = miWSCon.CadenaConexion();
                 //Comando de busqueda de Usuarios
-                SqlCommand comando = new SqlCommand("SELECT * FROM tUsuarios WHERE usuario=@usuario AND password=@password");
+                SqlCommand comando = new SqlCommand("SELECT * FROM sales.tUsuarios WHERE usuario=@usuario AND password=@password");
                 //Parametros del comando(usuario y Contraseña que nos proporcionan desde los argumentos
                 comando.Parameters.Add("@usuario", SqlDbType.VarChar, 50).Value = usuario;
                 comando.Parameters.Add("@password", SqlDbType.VarChar, 50).Value = password;
+                comando.Connection = conexion;
                 //determinar si existe segun lo que nos devuelve la BBDD
                 //ExecutteReader, ExecuteNonQuery(para Update, delete, y devuelve la cantidad de filas afectadas) o ExecuteScalar(devuelve la primera columna de la primera fila si encuentra el elemento)?
                 try
