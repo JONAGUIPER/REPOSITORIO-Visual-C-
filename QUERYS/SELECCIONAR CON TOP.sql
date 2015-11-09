@@ -1,0 +1,16 @@
+select DISTINCT top(10)WITH TIES UnitPrice --10 MEJORES VALORES DISTINTOS DE TODO EL RANGO DE VALORES
+from Sales.SalesOrderDetail
+ORDER BY UnitPrice DESC
+
+
+select DISTINCT top(10) UnitPrice --10 PRIMEROS VALORES DISTINTOS QUE SE ENCUENTRE
+from Sales.SalesOrderDetail
+ORDER BY UnitPrice
+
+select top(10) UnitPrice --10 PRIMEROS VALORES QUE SE ENCUENTRE
+from Sales.SalesOrderDetail
+ORDER BY UnitPrice 
+
+select top(10)WITH TIES UnitPrice --10 PRIMEROS VALORES QUE SE ENCUENTRE INCLUYENDO LAS REPETICIONES
+from Sales.SalesOrderDetail
+ORDER BY UnitPrice 
