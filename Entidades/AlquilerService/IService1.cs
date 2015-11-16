@@ -24,7 +24,7 @@ namespace AlquilerService
         List<Alquiler> GetOrdersByIdCliente(string idCliente);
 
         [OperationContract]
-        List<Cliente> GetCarsByCategoryInStore(int idCategoria,int idTienda);
+        List<Coche> GetCarsByCategoryInStore(int idCategoria,int idTienda);
     }
 
 

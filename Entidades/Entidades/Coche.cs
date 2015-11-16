@@ -8,13 +8,13 @@ namespace Entidades
 {
     public class Coche
     {
-        int idCoche;
-        int categoria;
-        string marca;
-        string modelo;
-        float kilometraje;
-        int estado;
-        float consumo;
-        int combustible;
+        public string IdCoche { get; set; }
+        public int Categoria { get; set; }
+        public string Marca { get; set; }
+        public string Modelo { get; set; }
+        public int Kilometraje { get; set; }
+        public int Ubicacion { get; set; }
+        public int Consumo { get; set; }
+        public short Combustible { get; set; }
     }
 }

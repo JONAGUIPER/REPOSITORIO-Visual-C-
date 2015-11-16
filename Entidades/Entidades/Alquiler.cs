@@ -8,13 +8,13 @@ namespace Entidades
 {
     public class Alquiler
     {
-        int idAlquiler;
-        int idCoche;
-        int idCliente;
-        int idTienda;
-        DateTime FechaEntrega;
-        int TiendaEntrega;
-        DateTime fechaDevolucion;
-        int TiendaDevolucion;
+        public int IdAlquiler { get; set; }
+        public string IdCoche { get; set; }
+        public string IdCliente { get; set; }
+        public int IdTienda { get; set; }
+        public DateTime FechaEntrega { get; set; }
+        public int TiendaEntrega { get; set; }
+        public DateTime FechaDevolucion { get; set; }
+        public int TiendaDevolucion { get; set; }
     }
 }

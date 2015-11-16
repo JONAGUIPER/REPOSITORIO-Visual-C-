@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Entidades" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Entidades" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfCliente">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Cliente" nillable="true" type="tns:Cliente" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCliente" nillable="true" type="tns:ArrayOfCliente" />
+  <xs:complexType name="Cliente">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Alquileres" nillable="true" type="tns:ArrayOfAlquiler" />
+      <xs:element minOccurs="0" name="Apellidos" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdCliente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Cliente" nillable="true" type="tns:Cliente" />
+  <xs:complexType name="ArrayOfAlquiler">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Alquiler" nillable="true" type="tns:Alquiler" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAlquiler" nillable="true" type="tns:ArrayOfAlquiler" />
+  <xs:complexType name="Alquiler">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FechaDevolucion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaEntrega" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IdAlquiler" type="xs:int" />
+      <xs:element minOccurs="0" name="IdCliente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdCoche" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdTienda" type="xs:int" />
+      <xs:element minOccurs="0" name="TiendaDevolucion" type="xs:int" />
+      <xs:element minOccurs="0" name="TiendaEntrega" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Alquiler" nillable="true" type="tns:Alquiler" />
+  <xs:complexType name="ArrayOfCoche">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Coche" nillable="true" type="tns:Coche" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCoche" nillable="true" type="tns:ArrayOfCoche" />
+  <xs:complexType name="Coche">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Categoria" type="xs:int" />
+      <xs:element minOccurs="0" name="Combustible" type="xs:short" />
+      <xs:element minOccurs="0" name="Consumo" type="xs:int" />
+      <xs:element minOccurs="0" name="IdCoche" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Kilometraje" type="xs:int" />
+      <xs:element minOccurs="0" name="Marca" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Modelo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ubicacion" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Coche" nillable="true" type="tns:Coche" />
+</xs:schema>
