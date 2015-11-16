@@ -42,6 +42,7 @@ namespace Controladores
         {
             return listaClientes.Find(c=>c.IdCliente==Id);
         }
+
         public List<Alquiler> PedidosByCliente(string IdCliente)
         {
             return (listaClientes.Find(c => c.IdCliente == IdCliente)).Alquileres;
