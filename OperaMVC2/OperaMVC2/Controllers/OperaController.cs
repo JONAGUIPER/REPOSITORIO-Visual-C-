@@ -19,6 +19,7 @@ namespace OperaMVC2.Controllers
         public ActionResult Index()
         {
             inicia.InitializeDatabase(db);
+            InfoIntercambio(db.Operas.ToList().Count);
             return View(db.Operas.ToList());
         }
 
@@ -117,6 +118,11 @@ namespace OperaMVC2.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Errores()
+        {
+            return View();
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -124,6 +130,12 @@ namespace OperaMVC2.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public void InfoIntercambio(int elementos)
+        {
+            ViewBag.Mensaje="Mensaje desde el Controlador";
+            ViewBag.Cantidad = "La Cantidad de registros es: " + elementos;
         }
     }
 }
