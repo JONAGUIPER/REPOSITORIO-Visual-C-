@@ -1,0 +1,39 @@
+﻿@model MVCFotos.Models.Foto
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalle de Foto</h2>
+<div class="row">
+    <div class="col-md-4">
+        <img class="thumbnail" src="@Html.DisplayFor(c=>Model.FotoURL)" />
+    </div>
+    <div class="col-md-8">
+        <dl class="dl-horizontal">
+            <dt>@Html.DisplayNameFor(model => model.IDFoto)</dt>
+            <dd>@Html.DisplayFor(model => model.IDFoto)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Titulo)</dt>
+            <dd>@Html.DisplayFor(model => model.Titulo)</dd>
+            <dt>@Html.DisplayNameFor(model => model.FechaCreacion)</dt>
+            <dd>@Html.DisplayFor(model => model.FechaCreacion)</dd>
+        </dl>
+    </div>
+</div>
+<h2>COMENTARIOS</h2>
+
+
+@Html.Action("_Comentarios", "Comentario", new { FotoId = Model.IDFoto })
+<div class="row">
+    <div class="col-md-2 col-md-offset-5">
+        @using (Html.BeginForm("AgregarComentario", "Comentario", new { IDFoto = Model.IDFoto }, FormMethod.Get))
+        {
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Agregar Comentario" class="btn btn-default" />
+                </div>
+            </div>
+        }
+    </div>
+
+</div>

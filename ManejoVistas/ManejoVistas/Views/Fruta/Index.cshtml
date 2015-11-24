@@ -1,0 +1,30 @@
+﻿@model IEnumerable<ManejoVistas.Models.Fruta>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+@Html.ActionLink("Agregar Fruta", "Create");
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model=>model.IdFruta)</th>
+        <th>@Html.DisplayNameFor(model => model.NombreFruta)</th>
+        <th>@Html.DisplayNameFor(model => model.PrecioKiloFruta)</th>
+        <th>Precio+IVA</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(variable=>item.IdFruta)</td>
+            <td>@Html.DisplayFor(variable => item.NombreFruta)</td>
+            <td>@Html.DisplayFor(variable => item.PrecioKiloFruta)</td>
+            <td>@(item.PrecioKiloFruta*1.04)</td>
+            <td>@Html.ActionLink("Borrar","Delete", new { idFruta = item.IdFruta })</td>
+        </tr>
+    }
+</table>
+<h2>Las Frutas</h2>
+
+@Html.Action("_FrutaGallery", "Fruta",new { cantidad = 3 });

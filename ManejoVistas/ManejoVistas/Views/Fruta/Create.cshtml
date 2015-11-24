@@ -1,0 +1,25 @@
+﻿@model ManejoVistas.Models.Fruta
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Añadir una Fruta</h2>
+
+@using (Html.BeginForm("Create", "Fruta", FormMethod.Post))
+{
+    <p>
+        @Html.LabelFor(model => model.NombreFruta):
+        @Html.EditorFor(model => model.NombreFruta)
+        @Html.ValidationMessageFor(model=>model.NombreFruta)
+    </p>
+    <p>
+        @Html.LabelFor(model => model.PrecioKiloFruta):
+        @Html.EditorFor(model => model.PrecioKiloFruta)
+        @Html.ValidationMessageFor(model => model.PrecioKiloFruta)
+    </p>
+    <input type="submit" value="Create"/>
+    @Html.ActionLink("Regresar", "Index");
+}
+

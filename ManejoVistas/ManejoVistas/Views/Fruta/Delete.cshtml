@@ -1,0 +1,26 @@
+﻿@model ManejoVistas.Models.Fruta
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Desea Eliminar el Registro:</h2>
+<dl class="dl-horizontal">
+    <dt>@Html.DisplayNameFor(model => model.NombreFruta):</dt>
+    <dd>@Html.DisplayFor(model => model.NombreFruta)</dd>
+    <dt>@Html.DisplayNameFor(model => model.PrecioKiloFruta):</dt>
+    <dd>@Html.DisplayFor(model => model.PrecioKiloFruta)</dd>
+</dl>
+
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Delete" />
+}
+
+
+
+
+
+
+

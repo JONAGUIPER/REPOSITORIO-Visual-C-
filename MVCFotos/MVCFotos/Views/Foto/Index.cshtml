@@ -1,0 +1,29 @@
+﻿@model IEnumerable<MVCFotos.Models.Foto>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista de Fotos</h2>
+
+<table class="table">
+    
+    <tr>
+        <th>@Html.DisplayNameFor(model =>model.Titulo)</th>
+        <th>@Html.DisplayNameFor(model => model.FechaCreacion)</th>
+        <th>@Html.DisplayNameFor(model => model.FotoURL)</th>
+        <th></th>
+    </tr>
+    
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(c=>item.Titulo)</td>
+            <td>@Html.DisplayFor(c => item.FechaCreacion)</td>
+            <td>@Html.DisplayFor(c => item.FotoURL)</td>
+            <td>@Html.ActionLink("Detalles","Details", new { iDFoto = item.IDFoto })</td>
+        </tr>
+    }
+</table>
+
+

@@ -1,0 +1,19 @@
+﻿@model IEnumerable<ManejoVistas.Models.Fruta>
+
+@foreach (var item in Model)
+{
+    <h4>@item.NombreFruta</h4>
+    if (item.FrutaFile != null)
+    {
+        <img width="200"
+             src="@item.FrutaFile" />
+    }
+    @*<p>
+        Creado por: @Html.DisplayFor(model=>item.ClienteName)
+    </p>
+    <p>
+        Creado el: @Html.DisplayFor(model=>item.CreateDate)
+    </p>
+    @Html.ActionLink("Display", "Display", new { id=item.IdFruta})*@
+}
+
