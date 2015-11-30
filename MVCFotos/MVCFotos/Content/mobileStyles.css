@@ -1,0 +1,14 @@
+﻿body {
+}
+ul{
+    list-style:none;
+    text-decoration:none;
+}
+ul li{
+    display:inline;
+}
+@media(max-width:600px) {
+    body {
+        background-color: aqua;
+    }
+}

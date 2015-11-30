@@ -1,0 +1,35 @@
+﻿@model MVCNorthwinnd.Models.Customer
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>INFORMACION DEL CLIENTE</h2>
+
+<dl class="dl-horizontal">
+    <dt>@Html.DisplayNameFor(model => model.CustomerID)</dt>
+    <dd>@Html.DisplayFor(model => model.CustomerID)</dd>
+
+    <dt>@Html.DisplayNameFor(model => model.ContactTitle)</dt>
+    <dd>@Html.DisplayFor(model => model.ContactTitle)</dd>
+
+    <dt>@Html.DisplayNameFor(model => model.ContactName)</dt>
+    <dd>@Html.DisplayFor(model => model.ContactName)</dd>
+
+    <dt>@Html.DisplayNameFor(model => model.CompanyName)</dt>
+    <dd>@Html.DisplayFor(model => model.CompanyName)</dd>
+
+    <dt>@Html.DisplayNameFor(model => model.Address)</dt>
+    <dd>@Html.DisplayFor(model => model.Address)</dd>
+
+    <dt>@Html.DisplayNameFor(model => model.City)</dt>
+    <dd>@Html.DisplayFor(model => model.City)</dd>
+
+    <dt>@Html.DisplayNameFor(model => model.Country)</dt>
+    <dd>@Html.DisplayFor(model => model.Country)</dd>
+</dl>
+
+<h2>PEDIDOS</h2>
+@Html.Action("_OrdersByCustomer","Pedidos", new { id=Model.CustomerID})
+
+@Html.ActionLink("Ir Atras", "Index")

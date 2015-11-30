@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MVCNorthwinnd.Models.Customer>
+@{
+    ViewBag.Title = "PedidosCompania";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>PEDIDOS POR COMPAÑIA</h2>
+
+@*@using (Html.BeginForm("_OrdersByCustomer", "Pedidos", FormMethod.Post))*@
+@using (Ajax.BeginForm(new AjaxOptions
+{
+    HttpMethod = "post",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "contenido",
+    Url = Url.Action("_OrdersByCustomer")
+}))
+{
+    List<SelectListItem> newList = new List<SelectListItem>();
+    foreach (var item in Model)
+    {
+        SelectListItem selListItem = new SelectListItem() { Value = item.CustomerID, Text = item.CompanyName };
+        newList.Add(selListItem);
+    }
+    @Html.DropDownList("id", newList, new { @class = "form-control" })
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Ver Pedidos" class="btn btn-default" />
+        </div>
+    </div>
+}
+
+<div id="contenido">
+    @Html.Action("_OrdersByCustomer", "Pedidos")
+</div>
+

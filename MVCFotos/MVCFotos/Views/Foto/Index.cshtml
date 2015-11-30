@@ -1,6 +1,14 @@
 ﻿@model IEnumerable<MVCFotos.Models.Foto>
 @{
     ViewBag.Title = "Index";
+    //if (Request.Browser.IsMobileDevice)
+    //{
+    //    Layout = "~/Views/Shared/_Layout.cshtml";
+    //}
+    //else
+    //{
+    //    Layout = "~/Views/Shared/_Layout.Mobile.cshtml";
+    //}
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -21,7 +29,7 @@
             <td>@Html.DisplayFor(c=>item.Titulo)</td>
             <td>@Html.DisplayFor(c => item.FechaCreacion)</td>
             <td>@Html.DisplayFor(c => item.FotoURL)</td>
-            <td>@Html.ActionLink("Detalles","Details", new { iDFoto = item.IDFoto })</td>
+            <td>@Html.ActionLink("Detalles","Details", new { IDFoto = item.IDFoto })</td>
         </tr>
     }
 </table>

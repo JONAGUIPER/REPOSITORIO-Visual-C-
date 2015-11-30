@@ -1,0 +1,31 @@
+﻿@model IEnumerable<MVCNorthwinnd.Models.Order>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>LISTA DE PEDIDOS</h2>
+<table class="table table-condensed">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.OrderID)</th>
+        <th>@Html.DisplayNameFor(model => model.Customer)</th>
+        <th>@Html.DisplayNameFor(model => model.OrderDate)</th>
+        <th>@Html.DisplayNameFor(model => model.ShipAddress)</th>
+        <th>@Html.DisplayNameFor(model => model.EmployeeID)</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(c => item.OrderID)</td>
+            <td>@Html.DisplayFor(c => item.Customer.CompanyName)</td>
+            <td>@Html.DisplayFor(c => item.OrderDate)</td>
+            <td>@Html.DisplayFor(c => item.ShipAddress),
+            @Html.DisplayFor(c => item.ShipCity),
+            @Html.DisplayFor(c => item.ShipCountry)</td>
+            <td>@Html.DisplayFor(c => item.EmployeeID)</td>
+            <td>@Html.ActionLink("Detalles", "Details", new { id = item.OrderID })</td>
+        </tr>
+    }
+</table>
+

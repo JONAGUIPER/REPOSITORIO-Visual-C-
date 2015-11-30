@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MVCNorthwinnd.Models.Order>
+@if (Model != null)
+{
+    <h2>Pedidos de: @ViewBag.compania</h2>
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.OrderID)</th>
+                <th>@Html.DisplayNameFor(model => model.Customer)</th>
+                <th>@Html.DisplayNameFor(model => model.OrderDate)</th>
+                <th>@Html.DisplayNameFor(model => model.ShipAddress)</th>
+                <th>@Html.DisplayNameFor(model => model.EmployeeID)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(c => item.OrderID)</td>
+                    <td>@Html.DisplayFor(c => item.Customer.CompanyName)</td>
+                    <td>@Html.DisplayFor(c => item.OrderDate)</td>
+                    <td>
+                        @Html.DisplayFor(c => item.ShipAddress),
+                        @Html.DisplayFor(c => item.ShipCity),
+                        @Html.DisplayFor(c => item.ShipCountry)
+                    </td>
+                    <td>@Html.DisplayFor(c => item.EmployeeID)</td>
+                    <td>@Html.ActionLink("Detalles", "Details", new { id = item.OrderID })</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+

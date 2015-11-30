@@ -1,0 +1,26 @@
+﻿@model MVCNorthwinnd.Models.Order_Detail
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CAracteristicas de la Orden</h2>
+<dl class="dl-horizontal">
+    <dt>@Html.DisplayNameFor(model => model.OrderID)</dt>
+    <dd>@Html.DisplayFor(model => model.OrderID)</dd>
+
+    <dt>@Html.DisplayNameFor(model => model.ProductID)</dt>
+    <dd>@Html.DisplayFor(model => model.ProductID)</dd>
+
+    <dt>@Html.DisplayNameFor(model => model.Quantity)</dt>
+    <dd>@Html.DisplayFor(model => model.Quantity)</dd>
+
+    <dt>@Html.DisplayNameFor(model => model.UnitPrice)</dt>
+    <dd>@Html.DisplayFor(model => model.UnitPrice)</dd>
+
+    <dt>@Html.DisplayNameFor(model => model.Discount)</dt>
+    <dd>@Html.DisplayFor(model => model.Discount)</dd>
+
+</dl>
+
+@Html.ActionLink("Ir Atras", "Index")

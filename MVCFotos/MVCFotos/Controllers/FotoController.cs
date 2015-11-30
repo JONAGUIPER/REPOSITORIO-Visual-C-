@@ -19,5 +19,14 @@ namespace MVCFotos.Controllers
         {
             return View(DbContext.Fotos.Find(f => f.IDFoto == IDFoto));
         }
+        public ActionResult DetailsByTitle(string title)
+        {
+            Foto photo = (from f in DbContext.Fotos where f.Titulo==title select f).First<Foto>();
+            if (photo==null)
+            {
+                return HttpNotFound();
+            }
+            return View("Details",photo);
+        }
     }
 }
