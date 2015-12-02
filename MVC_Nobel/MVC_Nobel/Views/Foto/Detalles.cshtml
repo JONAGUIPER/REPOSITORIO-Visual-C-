@@ -1,0 +1,26 @@
+﻿@model MVC_Nobel.Models.Foto
+
+@{
+    ViewBag.Title = "Detalles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Foto</h2>
+
+
+   
+<div >
+    <div>
+        @Html.DisplayFor(model => model.fotoTitulo)
+    </div>
+    <div>
+        <img src="@Url.Content(Model.fotoURL)"  />
+    </div>
+       
+</div>
+
+    @Html.Action("_ComentariosDeFoto", "Comentario", new { id = Model.fotoID })
+
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

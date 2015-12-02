@@ -1,0 +1,31 @@
+﻿@model IEnumerable<MVC_Nobel.Models.Comentario>
+
+
+<h3>Comentarios:</h3>
+
+@using(Ajax.BeginForm("_ComentariosDeFoto",new {id = ViewBag.idFoto },new AjaxOptions { UpdateTargetId = "comments-tool" }))
+{
+<div id="comments-tool">
+    @foreach (var item in Model)
+    {
+        <div>
+            @Html.DisplayFor(modelItem => item.Autor)
+        </div>
+        <div>
+            @Html.DisplayFor(modelItem => item.Texto) 
+        </div>
+        <div>
+            @Html.DisplayFor(modelItem => item.comentarioID)
+        </div>
+
+        <div>
+            @Html.ActionLink("Eliminar Comentario", "Delete", new { id = item.comentarioID })
+        </div>
+       
+    }
+    <div id="addcomment">
+            @Html.Action("_Create", "Comentario", new { id = ViewBag.idFoto })
+    </div>
+
+</div>
+}
