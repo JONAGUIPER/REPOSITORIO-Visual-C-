@@ -1,0 +1,27 @@
+﻿@model IEnumerable<MVCFotos.Models.Comentario>
+
+<h3>comentarios 3 AJAX</h3>
+@using (Ajax.BeginForm("_CommentsForPhotoAjax", new { FotoId = ViewBag.FotoId }, new AjaxOptions { UpdateTargetId = "comments-tool" }))
+{
+    <div id="comments-tool">
+        <div id="all-comments">
+            @foreach (var item in Model)
+            {
+                <div class="photo-comment-from">
+                    From:
+                    @Html.DisplayFor(modelItem => item.Autor)
+                </div>
+                <div class="photo-comment-text">
+                    From:
+                    @Html.DisplayFor(modelItem => item.Texto)
+                </div>
+
+                @Html.ActionLink("Delete this Comment", "DeleteAjax", new { id = item.IdComentario })
+            }
+        </div>
+    </div>
+    <div id="addcomment" class="add-comment-box">
+        @Html.Action("_AgregarComentarioAjax", "Comentario", new { id = ViewBag.idFoto })
+    </div>
+}
+ 

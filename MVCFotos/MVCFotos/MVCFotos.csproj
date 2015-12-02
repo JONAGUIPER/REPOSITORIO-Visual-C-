@@ -206,6 +206,8 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -255,9 +257,14 @@
     <Content Include="Views\Comentario\_AgregarComentario.cshtml" />
     <Content Include="Views\Shared\_PlantillaWeb.cshtml" />
     <Content Include="Views\Shared\_Layout.Mobile.cshtml" />
+    <Content Include="Views\Shared\_CommentsForPhoto.cshtml" />
+    <Content Include="Views\Comentario\DeleteAjax.cshtml" />
+    <Content Include="Views\Shared\_CreateAComment.cshtml" />
+    <Content Include="Views\Shared\_CommentsForPhotoAjax.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Comment\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

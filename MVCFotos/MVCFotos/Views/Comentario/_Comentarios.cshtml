@@ -2,10 +2,12 @@
 @{
     Layout = null;
 }
-<div class="row">
+@*@using (Ajax.BeginForm("_AgregarComentario2", new AjaxOptions { UpdateTargetId = "comments" }))
+    {*@
+<div class="row" id="comments">
     <div class="col-md-offset-2 col-md-8">
         @foreach (var item in Model)
-        {
+            {
             <div class="row">
                 <div class="col-md-3">
                     <div class="row">
@@ -20,10 +22,25 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-6">
                     @Html.DisplayFor(model => item.Texto)
                 </div>
+                <div class="col-md-3">
+                    @Ajax.ActionLink("Eliminar", "Delete", new { id = item.IdComentario, idfoto = item.FotoId }, new AjaxOptions
+                   {
+                       HttpMethod = "DELETE",
+                       InsertionMode = InsertionMode.Replace,
+                       UpdateTargetId = "comments"
+                       //OnSuccess = "function() { window.location.reload(); }"
+                   })
+                </div>
             </div>
-            }
-        </div>
+        }
+
     </div>
+
+</div>
+<div class="row">
+    @Html.Action("_AgregarComentario", "Comentario", new { id = ViewBag.idFoto })
+</div>
+@*}*@

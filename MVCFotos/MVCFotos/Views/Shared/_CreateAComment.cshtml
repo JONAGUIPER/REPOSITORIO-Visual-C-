@@ -2,10 +2,9 @@
 @{
     Layout = null;
 }
-@*<h2>Agregar Comentario para @ViewBag.NFoto</h2>*@
-@*@using (Html.BeginForm("_AgregarComentario", "Comentario", FormMethod.Post))*@
-@using (Ajax.BeginForm("_AgregarComentario2", new AjaxOptions { UpdateTargetId = "comments" }))
-{
+<h2>Agregar Comentario para @ViewBag.NFoto</h2>
+@*@using (Html.BeginForm("_AgregarComentario", "Comentario", FormMethod.Post))
+{*@
     @Html.HiddenFor(model => model.FotoId)
     <div class="form-horizontal">
         <div class="form-group">
@@ -28,18 +27,16 @@
                 <input type="submit" value="Guardar" class="btn btn-default" />
             </div>
             <div class="col-md-2">
-                <a href="@Url.Action("Details", "Foto", new { IDFoto = Model.FotoId })">atras</a>
+                @*<a href="@Url.Action("Details", "Foto", new { IDFoto = Model.FotoId })">atras</a>
 
-                @*@Ajax.ActionLink("Agregar Por Ajax", "_AgregarComentario2", new { comentario = Model }, new AjaxOptions
-                    {
-                        HttpMethod = "PUT",
-                        InsertionMode = InsertionMode.Replace,
-                        UpdateTargetId = "comments"
-                        //OnSuccess = "function() { window.location.reload(); }"
-                    })*@
-                @*<input type="button" value="Cancelar" class="btn btn-default" data-dismiss="modal"/>*@
-                @*<button class="btn btn-danger" onclick="@Url.Action("Details", "Foto",new {IDFoto=Model.FotoId} )">Atras</button>*@
+                @Ajax.ActionLink("Por AJAX", "_Comentarios","Comentario", new AjaxOptions
+           {
+               HttpMethod = "POST",
+               UpdateTargetId = "comments",
+               InsertionMode = InsertionMode.Replace
+           })*@
             </div>
         </div>
     </div>
-}
+@*}*@
+@section Scripts{@Scripts.Render("~/bundles/jqueryval")}

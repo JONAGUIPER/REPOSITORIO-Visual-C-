@@ -1,9 +1,10 @@
 ﻿@model MVCFotos.Models.Foto
 @{
     ViewBag.Title = "Details";
-   Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
 <h2>Detalle de Foto</h2>
 <div class="row">
     <div class="col-md-4">
@@ -20,14 +21,21 @@
         </dl>
     </div>
 </div>
-<h2>COMENTARIOS</h2>
 
 
-@Html.Action("_Comentarios", "Comentario", new { IDFoto = Model.IDFoto})
+@*@Html.Action("_CommentsForPhoto", "Comentario", new { id = Model.IDFoto })*@
+    @Html.Action("_CommentsForPhotoAjax", "Comentario", new { id = Model.IDFoto })
+
+
+@*<h2>COMENTARIOS MIOS</h2>
+<div id="comentarios">
+    @Html.Action("_Comentarios", "Comentario", new { IDFoto = Model.IDFoto })
+</div>
+
 
 <div class="row">
     <div class="col-md-2 col-md-offset-5">
-        @using (Html.BeginForm("AgregarComentario", "Comentario",new { id = Model.IDFoto },FormMethod.Get))
+        @using (Html.BeginForm("AgregarComentario", "Comentario", new { id = Model.IDFoto }, FormMethod.Get))
         {
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
@@ -37,7 +45,10 @@
         }
     </div>
 
-</div>
+</div>*@
 
-@Html.Action("_AgregarComentario", "Comentario", new {id = Model.IDFoto })
+@*@Html.Action("_Create", "Comentario", new { id = Model.IDFoto })*@
+
+@*@Html.Action("_AgregarComentario", "Comentario", new { id = Model.IDFoto })*@
+
 
