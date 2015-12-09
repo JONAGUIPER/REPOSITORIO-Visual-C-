@@ -1,0 +1,93 @@
+﻿@model IEnumerable<MVCFotosAjax.Models.Comentario>
+
+@*<p>
+        @Html.ActionLink("Nuevo Comentario", "CrearComentario", new { id = ViewBag.IDFoto })
+    </p>*@
+
+
+@using (Ajax.BeginForm("_ComentariosFoto",
+                            new { id = ViewBag.IDFoto },
+                            new AjaxOptions { UpdateTargetId = "foto-comments",InsertionMode=InsertionMode.Replace }))
+{
+    <div class="row" id="foto-comments">
+        <div class="col-xs-12 col-md-6 well">
+            @Html.Action("_CrearComentario", "Comentario", new { id = ViewBag.IDFoto })
+            <p>@Html.ActionLink("Ir a Lista", "Indice")</p>
+        </div>
+
+        <div class="col-xs-12 col-md-6">
+            @foreach (var item in Model)
+            {
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            @Html.DisplayNameFor(model => model.Autor):
+                            @Html.DisplayFor(modelItem => item.Autor)
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        @Html.DisplayNameFor(model => model.Contenido)
+                        @Html.DisplayFor(modelItem => item.Contenido)
+                        <hr />
+                        <p>
+                            @Html.DisplayNameFor(model => model.FechaComentario)
+                            @Html.DisplayFor(modelItem => item.FechaComentario)
+                        </p>
+                    </div>
+                    <div class="panel-footer">
+                        @Html.ActionLink("Editar", "EditarComentario", new { id = item.IdComentario }) |
+                            @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                        @Html.ActionLink("Borrar", "EliminarComentario", new { id = item.IdComentario })
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}
+@*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdComentario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Autor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contenido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaComentario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdFoto)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdComentario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Autor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Contenido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaComentario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdFoto)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+
+    </table>*@

@@ -1,0 +1,132 @@
+﻿@model IEnumerable<MVCFotosAjax.Models.Foto>
+
+@{
+    ViewBag.Title = "Indice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Indice</h2>
+
+<p>
+    @Html.ActionLink("Añadir Foto", "Create")
+</p>
+@*<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdFoto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.URLFoto)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdFoto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                <img src="@Url.Content(item.URLFoto)" alt="@item.Titulo" width="100" />
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Ver Foto", "Detalles", new { id = item.IdFoto }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>*@
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-6 col-md-4">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        @Html.DisplayFor(modelItem => item.Titulo)
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="col-md-5">
+                        <img src="@Url.Content(item.URLFoto)" alt="@item.Titulo" width="100" />
+                    </div>
+                    <div class="col-md-7">
+                        <dl>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.IdFoto)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(modelItem => item.IdFoto)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Titulo)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(modelItem => item.Titulo)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.URLFoto)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(modelItem => item.URLFoto)
+                            </dd>
+                        </dl>
+                    </div>
+
+                </div>
+                <div class="panel-footer">
+                    @Html.ActionLink("Ver Foto", "Detalles", new { id = item.IdFoto })
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <img src="@Url.Content(item.URLFoto)" alt="@item.Titulo" class="tamanoFoto" />
+            <div class="caption">
+                <h3>@Html.DisplayFor(modelItem => item.Titulo)</h3>
+                <p>
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.IdFoto)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(modelItem => item.IdFoto)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Titulo)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(modelItem => item.Titulo)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.URLFoto)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(modelItem => item.URLFoto)
+                        </dd>
+                    </dl>
+                </p>
+                <p>@Html.ActionLink("Ver Foto", "Detalles", new { id = item.IdFoto })</p>
+            </div>
+        </div>
+    </div>
+    }
+</div>

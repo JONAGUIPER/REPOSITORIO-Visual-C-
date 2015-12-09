@@ -1,0 +1,99 @@
+﻿@model MVCFotosAjax.Models.Foto
+
+@{
+    ViewBag.Title = "Detalles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles</h2>
+
+@*<div>
+        <h4>Foto</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.IdFoto)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IdFoto)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Titulo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.URLFoto)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.URLFoto)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        @Html.ActionLink("Ir a Lista", "Indice")
+    </p>*@
+
+<div class="row">
+    <div class="col-md-offset-1 col-md-10">
+        <div class="thumbnail">
+            <img src="@Url.Content(Model.URLFoto)" alt="@Model.Titulo" />
+            <div class="caption">
+                <h3>@Html.DisplayFor(model => model.Titulo)</h3>
+                <p>
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.IdFoto)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.IdFoto)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Titulo)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Titulo)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.URLFoto)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.URLFoto)
+                        </dd>
+
+                    </dl>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+
+
+    @*<div class="col-xs-12 col-md-6 well">
+        @Html.Action("_CrearComentario", "Comentario", new { id = Model.IdFoto })
+        <p>@Html.ActionLink("Ir a Lista", "Indice")</p>
+    </div>*@
+    
+
+    
+
+        @Html.Action("_ComentariosFoto", "Comentario", new { id = Model.IdFoto })
+
+    
+
+
