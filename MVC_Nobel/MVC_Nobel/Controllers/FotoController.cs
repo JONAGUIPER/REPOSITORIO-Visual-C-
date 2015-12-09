@@ -19,7 +19,9 @@ namespace MVC_Nobel.Controllers
 
             return View("Index", fotos);
         }
-
+        [OutputCache(Duration = 600,
+            Location = System.Web.UI.OutputCacheLocation.Server,
+            VaryByParam = "id")]
         public ActionResult Detalles(int id)
         {
             Foto foto = (from f in Context.Fotos

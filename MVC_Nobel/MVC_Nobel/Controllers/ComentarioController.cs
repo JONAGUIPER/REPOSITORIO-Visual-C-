@@ -36,7 +36,7 @@ namespace MVC_Nobel.Controllers
         public PartialViewResult _Create(int id)
         {
             Comentario comentario = new Comentario();
-            
+            comentario.fotoID = id;
             ViewBag.idFoto = id;
             return PartialView("_CreateAComment", comentario);
         }

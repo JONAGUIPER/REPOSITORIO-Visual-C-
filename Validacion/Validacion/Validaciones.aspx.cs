@@ -1,50 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+﻿<div class="post-date radius-100 updated">
+<span>
+<a href="<?php the_permalink(); ?>">
+<?php echo get_the_date( 'd' ) ?></span><br /><?php echo get_the_date( 'M' ) ?><br /><?php echo get_the_date( 'Y' ) ?></a></div>
+      <h2 class="post-title entry-title" itemprop="headline"><a href="<?php the_permalink(); ?>" rel="<?php esc_attr_e( 'bookmark', 'adelle-theme' ); ?>"><?php the_title(); ?></a></h2>
+      <div class="post-category"><?php _e( 'categories', 'adelle-theme' ); ?>: <?php the_category( ', ' ); ?></div>
+    </header>
 
-namespace Validacion
-{
-    public partial class Validaciones : System.Web.UI.Page
-    {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            //if (!this.IsPostBack)
-            //{
-            //    this.Validate();
-            //}
-        }
+    <?php if ( has_post_thumbnail() ) { the_post_thumbnail( 'post_thumb', array( 'class'=>'alignleft' ) ); } ?>
+      
+      <article class="post-content" itemprop="text">
 
-        protected void btnEntrar_Click(object sender, EventArgs e)
-        {
-            if (Page.IsValid)
-            {
-                lblRespuesta.Text = "Datos validos";
-            }
-            else
-                lblRespuesta.Text = "Datos invalidos";
-
-        }
-
-
-        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
-        {
-
-            string dato = args.Value;
-            //string val1 = dato.Split(' ')[0].ToString();
-            //string val2 = dato.Split('0')[0].ToString();
-            if ((dato == dato.Split(' ')[0].ToString()) 
-                && (dato == dato.Split('0')[0].ToString())
-                && (!string.IsNullOrEmpty(dato)))
-            {
-                args.IsValid = true;
-            }
-            else
-            {
-                args.IsValid = false;
-            }
-        }
-    }
-}
+        <?php the_content(); ?>
