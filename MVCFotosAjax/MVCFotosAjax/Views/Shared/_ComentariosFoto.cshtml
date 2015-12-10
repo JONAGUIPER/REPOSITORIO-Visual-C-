@@ -11,7 +11,14 @@
 {
     <div class="row" id="foto-comments">
         <div class="col-xs-12 col-md-6 well">
+            @if(Request.IsAuthenticated)
+            {
             @Html.Action("_CrearComentario", "Comentario", new { id = ViewBag.IDFoto })
+            }
+            else
+            {
+                @Html.ActionLink("Para Comentar dedes estar Registrado", "Login","Account")
+            }
             <p>@Html.ActionLink("Ir a Lista", "Indice")</p>
         </div>
 

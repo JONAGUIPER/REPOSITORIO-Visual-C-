@@ -54,6 +54,7 @@ namespace MVCFotosAjax.Controllers
         //}
 
         [HttpGet]
+        [Authorize]
         public ActionResult EliminarComentario(int id)
         {
             return View(Context.Comentarios.Find(c => c.IdComentario == id));
