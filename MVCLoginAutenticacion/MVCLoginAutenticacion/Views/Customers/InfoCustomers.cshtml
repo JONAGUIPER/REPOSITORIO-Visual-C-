@@ -6,7 +6,7 @@
 }
 <script src="~/Scripts/MisFunciones.js"></script>
 <h2>Informacion de Customers</h2>
-
+@(Url.Action("Index", "Orders", null, Request.Url.Scheme))+1
 <div class="form-group">
     @Html.Label("Nombre de Customer:", htmlAttributes: new { @class = "control-label col-md-2" })
     <div class="col-md-10">

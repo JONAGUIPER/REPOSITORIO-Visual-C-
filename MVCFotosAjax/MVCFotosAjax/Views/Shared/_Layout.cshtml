@@ -37,6 +37,7 @@
                     <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
                     <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Fotos", "Indice", "Foto")</li>
+                    <li>@Html.ActionLink("Carrousel", "Carrousel", "Foto")</li>
                 </ul>
                 @*@Html.Partial("_LoginPartial")*@
                 <ul class="nav navbar-nav navbar-right">
@@ -44,21 +45,21 @@
                     @*<div class="login-controls">*@
                     @if (Request.IsAuthenticated)
                     {
-                        <li>
-                            @Html.ActionLink("Hola " + @System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(User.Identity.Name) + " Cerrar Sesion", "LogOff", "Account")
-                        </li>
-                        <li>
-                            @Html.ActionLink("Cambiar Password", "ResetPassword", "Account")
-                        </li>
+                    <li>
+                        @Html.ActionLink("Hola " + @System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(User.Identity.Name) + " Cerrar Sesion", "LogOff", "Account")
+                    </li>
+                    <li>
+                        @Html.ActionLink("Cambiar Password", "ResetPassword", "Account")
+                    </li>
                     }
                     else
                     {
-                        <li>
-                            @Html.ActionLink("Iniciar Sesion", "Login", "Account")
-                        </li>
-                        <li>
-                            @Html.ActionLink("Register", "Register", "Account")
-                        </li>
+                    <li>
+                        @Html.ActionLink("Iniciar Sesion", "Login", "Account")
+                    </li>
+                    <li>
+                        @Html.ActionLink("Register", "Register", "Account")
+                    </li>
                     }
 
 
@@ -67,7 +68,16 @@
             </div>
         </div>
     </div>
+
+
     <div class="container body-content">
+        @if (Session["Favoritas"] != null)
+        {
+            <div id="favorites-link">
+                @Html.ActionLink("Fotos Favoritas", "FavoritesSlideShow", "Foto")
+            </div>
+        }
+
         @RenderBody()
         <hr />
         <footer>

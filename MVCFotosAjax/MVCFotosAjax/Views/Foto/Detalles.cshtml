@@ -81,19 +81,27 @@
         </div>
     </div>
 </div>
-<hr />
 
+<div id="addtofavorites">
+    @Ajax.ActionLink("Añadir a Favoritas", "AddFavoritas", "Foto", new { id = Model.IdFoto },
+    new AjaxOptions
+    {
+        UpdateTargetId = "addtofavorites",
+        HttpMethod = "GET",
+        InsertionMode = InsertionMode.Replace
+    })
+</div>
 
-    @*<div class="col-xs-12 col-md-6 well">
+@*<div class="col-xs-12 col-md-6 well">
         @Html.Action("_CrearComentario", "Comentario", new { id = Model.IdFoto })
         <p>@Html.ActionLink("Ir a Lista", "Indice")</p>
     </div>*@
-    
 
-    
 
-        @Html.Action("_ComentariosFoto", "Comentario", new { id = Model.IdFoto })
 
-    
+
+@Html.Action("_ComentariosFoto", "Comentario", new { id = Model.IdFoto })
+
+
 
 
