@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mime;
 using System.Web;
 using System.Web.Mvc;
 
@@ -58,5 +59,42 @@ namespace MVCFotosAjax.Controllers
             Session["Favoritas"] = idsFavoritas;
             return Content("LA Foto se ha añadido a sus faroritas", "text/plain",System.Text.Encoding.Default);
         }
+
+        public ViewResult Map()
+        {
+            return View("Map");
+        }
+
+        public FileContentResult GetImage(int id)
+        {
+            Foto photo = Context.Fotos.Find(p => p.IdFoto == id);
+            if (photo != null)
+            {
+                string url= HttpContext.Server.MapPath(photo.URLFoto);
+                byte[] fotoFichero = System.IO.File.ReadAllBytes(url);
+                //ContentType ct = new ContentType();
+                //ct.MediaType = MediaTypeNames.Image.Jpeg;
+                //return File(fotoFichero, ct.MediaType);
+                return File(fotoFichero, "image/jpg|image/png");
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        //public ContentResult GetImage(int id)
+        //{
+        //    Foto photo = Context.Fotos.Find(p => p.IdFoto == id);
+        //    if (photo != null)
+        //    {
+        //        return Content(photo.URLFoto);
+        //        //return File(fotoFichero, "image/jpg|image/png");
+        //    }
+        //    else
+        //    {
+        //        return null;
+        //    }
+        //}
     }
 }

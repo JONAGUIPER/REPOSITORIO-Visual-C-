@@ -71,3 +71,6 @@ textarea {
     margin: 5px;
     width: 834px;
 }
+
+/*div de credenciales*/
+.OverlaysBL + div {display:none;}

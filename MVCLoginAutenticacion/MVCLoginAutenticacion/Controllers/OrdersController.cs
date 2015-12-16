@@ -21,13 +21,14 @@ namespace MVCLoginAutenticacion.Controllers
             if (id==null)
             {
                 orders = db.Orders.Include(o => o.Customer);
-                
+                return View(orders.ToList());
             }
             else
             {
                 orders = db.Orders.Where(o => o.CustomerID == id).Include(o => o.Customer);
+                return PartialView(orders.ToList());
             }
-            return View(orders.ToList());
+            
         }
 
         // GET: Orders/Details/5

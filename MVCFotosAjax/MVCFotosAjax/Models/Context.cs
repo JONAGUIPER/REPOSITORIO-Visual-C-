@@ -17,35 +17,45 @@ namespace MVCFotosAjax.Models
                 {
                     IdFoto = 1,
                     Titulo="Plaza",
-                    URLFoto="~/images/Vitoria0.jpg"
+                    URLFoto="/images/Vitoria0.jpg",
+                    Latitude= 10.5F,
+                    Longitude = -66.933333F
                 });
             Fotos.Add(
                 new Foto()
                 {
                     IdFoto = 2,
                     Titulo = "Catedral",
-                    URLFoto = "~/images/Vitoria1.jpg"
+                    URLFoto = "/images/Vitoria1.jpg",
+                    Latitude = 42.846667F,
+                    Longitude = -2.673056F
                 });
             Fotos.Add(
                 new Foto()
                 {
                     IdFoto = 3,
                     Titulo = "Green Capital",
-                    URLFoto = "~/images/Vitoria2.jpg"
+                    URLFoto = "/images/Vitoria2.jpg",
+                    Latitude = 40.67F,
+                    Longitude = -73.94F
                 });
             Fotos.Add(
                 new Foto()
                 {
                     IdFoto = 4,
                     Titulo = "Palacio",
-                    URLFoto = "~/images/Vitoria3.jpg"
+                    URLFoto = "/images/Vitoria3.jpg",
+                    Latitude = 31.166667F,
+                    Longitude = 121.466667F
                 });
             Fotos.Add(
                 new Foto()
                 {
                     IdFoto = 5,
                     Titulo = "Plaza De Noche",
-                    URLFoto = "~/images/Vitoria4.jpg"
+                    URLFoto = "/images/Vitoria4.jpg",
+                    Latitude = 55.755833F,
+                    Longitude = 37.617778F
                 });
 
             Comentarios.Add(
