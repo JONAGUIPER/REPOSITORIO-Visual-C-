@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCFotosAjax", "MVCFotosAjax\MVCFotosAjax.csproj", "{E64B5FD3-F45B-4F7D-A102-E8F62B035B75}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8BB5EBA6-6808-4449-8DFE-CE9E70933EB5} = {8BB5EBA6-6808-4449-8DFE-CE9E70933EB5}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocationChecker", "LocationChecker\LocationChecker.csproj", "{8BB5EBA6-6808-4449-8DFE-CE9E70933EB5}"
 EndProject

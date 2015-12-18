@@ -5,6 +5,9 @@ using System.Linq;
 using System.Net.Mime;
 using System.Web;
 using System.Web.Mvc;
+//using MVCFotosAjax.GeoCodeService;//ESTE ES UN SERVICIO ALOJADO EN AZURE PERO NO SE LOGRO HACER FUNCIONAR
+using MVCFotosAjax.ServicioLocalDeUbicacion;
+
 
 namespace MVCFotosAjax.Controllers
 {
@@ -83,18 +86,60 @@ namespace MVCFotosAjax.Controllers
             }
         }
 
-        //public ContentResult GetImage(int id)
-        //{
-        //    Foto photo = Context.Fotos.Find(p => p.IdFoto == id);
-        //    if (photo != null)
-        //    {
-        //        return Content(photo.URLFoto);
-        //        //return File(fotoFichero, "image/jpg|image/png");
-        //    }
-        //    else
-        //    {
-        //        return null;
-        //    }
-        //}
+        #region Crear
+        [Authorize]
+        public ActionResult Create()
+        {
+            Foto photo = new Foto();
+            return View("Create", photo);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult Create(Foto Photo, HttpPostedFileBase image)
+        {
+            if (Photo.Location != "")
+            {
+                string stringLongLat = CheckLocation(Photo.Location);
+                if (stringLongLat.StartsWith("Success"))
+                {
+                    string[] coordenadas = stringLongLat.Split(':');
+                    Photo.Latitude = Convert.ToDouble(coordenadas[1]);
+                    Photo.Longitude = Convert.ToDouble(coordenadas[2]);
+                }
+
+            }
+            if (!ModelState.IsValid)
+            {
+                return View("Create", Photo);
+            }
+            else
+            {
+                string fileName = image.FileName.ToLower();
+                Photo.URLFoto = "/images/" + fileName;
+                image.SaveAs(Server.MapPath("~" + Photo.URLFoto));
+                Photo.IdFoto = Context.Fotos.Max(f => f.IdFoto)+1;
+                Context.Fotos.Add(Photo);
+                return View("Indice",Context.Fotos);
+            }
+            
+        }
+        #endregion
+
+        private string CheckLocation(string location)
+        {
+            LocationCheckerServiceClient cliente = null;
+            string response = "";
+            try
+            {
+                cliente = new LocationCheckerServiceClient();
+                response = cliente.GetLocation(location);
+            }
+            catch (Exception e)
+            {
+                response = "Error: " + e.Message;
+            }
+            return response;
+        }
     }
 }

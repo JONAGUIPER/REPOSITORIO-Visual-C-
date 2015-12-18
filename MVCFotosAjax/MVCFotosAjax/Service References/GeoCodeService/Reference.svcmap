@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cadb2d6a-4d8f-42cd-9793-c2009ee9e398" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://a86d7f1eea5b48689a9f45de916754f4.cloudapp.net/LocationCheckerService.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="LocationCheckerService.xsd" MetadataType="Schema" ID="36d110ab-fe5b-4056-a6d4-b62c21fee9f0" SourceId="1" SourceUrl="http://a86d7f1eea5b48689a9f45de916754f4.cloudapp.net/LocationCheckerService.svc?xsd=xsd0" />
+    <MetadataFile FileName="LocationCheckerService1.xsd" MetadataType="Schema" ID="cbf2353c-92ff-4a26-9dde-83186fcc2af2" SourceId="1" SourceUrl="http://a86d7f1eea5b48689a9f45de916754f4.cloudapp.net/LocationCheckerService.svc?xsd=xsd1" />
+    <MetadataFile FileName="LocationCheckerService.wsdl" MetadataType="Wsdl" ID="692fe662-1e77-4b68-8fa6-8b6df265ac3a" SourceId="1" SourceUrl="http://a86d7f1eea5b48689a9f45de916754f4.cloudapp.net/LocationCheckerService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

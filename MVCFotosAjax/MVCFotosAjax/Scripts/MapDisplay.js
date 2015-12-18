@@ -6,7 +6,7 @@ function GetMap() {
 
     //Set up the map
     map = new Microsoft.Maps.Map(document.getElementById("mapDiv"), { credentials: "AjDobrYQf74nnDXTKLvNsmp3DkILiCTFq_vZuQSX3ehhjgPkYj0ocd1_31mC_rzL" });
-
+    map.setView({ zoom: 2, center: new Microsoft.Maps.Location(0,0) })
     //Set up the data layer where the push pins will go
     dataLayer = new Microsoft.Maps.EntityCollection();
     map.entities.push(dataLayer);
@@ -25,16 +25,27 @@ function DisplayInfoBox(e) {
     if (e.targetType == 'pushpin') {
 
         //Formulate the HTML for the infobox
-        var htmlPinContent = "<div class='push-pin'>" + 
+        
+        
+        var htmlPinContent = "<div class='thumbnail'>" + "<a href='" + displayUrl + e.target.ID + "'>" +
+      "<img class='img-responsive' height='80' width='80' src='" + pictureUrl + e.target.ID + "' alt='" + e.target.Title + "' />" + "</a>" +
+      "<div class='caption'>" +
+        "<p>" + e.target.Title + "<p>" +
+        //"<p>"+e.target.Title+"</p>""
+      "</div>" +
+    "</div>";
+
+          
+        /*var htmlPinContent = "<div class='well'>" +"<p><strong id='infoboxTitle'>" + e.target.Title + "</strong></p>" +
             "<a href='" + displayUrl + e.target.ID + "'>" +
-            "<p>" + e.target.Title + "</p>" +
-            "<img height='80' width='80' src='" + /*e.target.Url*/pictureUrl + e.target.ID + "' />" +
+            
+            "<img height='80' width='80' src='" + pictureUrl + e.target.ID + "' />" +
             "</a>" +
-            "</div>";
+            "</div>";*/
 
         //Set the location of the infobox and display it with the HTML
         infoBox.setLocation(e.target.getLocation());
-        infoBox.setOptions({ visible: true, showPointer: true, htmlContent: htmlPinContent });
+        infoBox.setOptions({ visible: true, showCloseButton: true, showPointer: true, htmlContent: htmlPinContent });
     }
 }
 

@@ -42,7 +42,7 @@ namespace LocationCheckerWebRole
 
                 if (response.Results.Length > 0)
                 {
-                    results = String.Format("Success: Latitud:{0} Longitud:{1} Altitud:{2}",
+                    results = String.Format("Success:{0}:{1}:{2}",
                         response.Results[0].Locations[0].Latitude,
                         response.Results[0].Locations[0].Longitude,
                         response.Results[0].Locations[0].Altitude);
