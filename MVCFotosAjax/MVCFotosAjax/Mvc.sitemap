@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0"
+            xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd">
+
+  <mvcSiteMapNode title="Home" controller="Home" action="Index">
+    <mvcSiteMapNode title="Acerca de..." controller="Home" action="About"/>
+    <mvcSiteMapNode title="Contacto" controller="Home" action="Contact"/>
+    <mvcSiteMapNode title="Login" controller="Account" action="Login">
+      <mvcSiteMapNode title="Registrarse" controller="Account" action="Register"/>
+      <mvcSiteMapNode title="Cambiar Password" controller="Account" action="ResetPassword"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Fotos" controller="Foto" action="IndiceFotos">
+      <mvcSiteMapNode title="Detalles de Foto" controller="Foto" action="Detalles" preservedRouteParameters="id"/>
+      <mvcSiteMapNode title="Carrousel" controller="Foto" action="Carrousel"/>
+      <mvcSiteMapNode title="Mapa de Fotos" controller="Foto" action="Map"/>
+    </mvcSiteMapNode> 
+    
+  </mvcSiteMapNode>
+
+</mvcSiteMap>

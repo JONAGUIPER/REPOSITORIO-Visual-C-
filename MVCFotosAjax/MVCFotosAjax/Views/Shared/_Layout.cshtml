@@ -72,6 +72,8 @@
 
 
     <div class="container body-content">
+        @*@Html.MvcSiteMap().Menu()*@
+        @Html.MvcSiteMap().SiteMapPath()
         @if (Session["Favoritas"] != null)
         {
             <div id="favorites-link">

@@ -1,0 +1,74 @@
+﻿@model MVCFotosAjax.Models.Foto
+@{
+    ViewBag.Title = "Chat";
+}
+
+<h2>Chat sobre "@Model.Titulo"</h2>
+
+<div id="chat-photo-display">
+    @if (Model.URLFoto != null) {
+        <div class="photo-display">
+            <a href="@Url.Action("Detalles", "Foto", new { id = Model.IdFoto })">
+                <img width="200" src="@Url.Action("GetImage", "Foto", new { id = Model.IdFoto })" />
+            </a>
+        </div>
+    }
+
+        <div class="chat-photo-description">
+            @Html.DisplayFor(model => model.Titulo)
+        </div>
+    </div>
+
+@*<div class="row">
+    <div class="col-md-offset-1 col-md-10" id="chat-photo-display">
+        @if (Model.URLFoto != null)
+        {
+            <div class="thumbnail">
+                @*<a href="@Url.Action("Detalles", "Foto", new { id = Model.IdFoto })">
+                    <img src="@Url.Action("GetImage", "Foto", new { id = Model.IdFoto })" alt="@Model.Titulo" />
+                @*</a>
+                @*<img src="@Url.Content(Model.URLFoto)" alt="@Model.Titulo" />
+                <div class="caption">
+                    <h3>@Html.DisplayFor(model => model.Titulo)</h3>
+                    <p>
+
+                    </p>
+
+                </div>
+            </div>
+        }
+    </div>
+</div>*@
+
+@*<div class="row">
+     <div class="col-md-6">
+        <div class="input-group" id="chat-conversation">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button" id="sendmessage">Enviar</button>
+            </span>
+        <input type="text" class="form-control" placeholder="Escriba mensaje..." id="chat-message">
+         <ul id="discussion"></ul>
+        </div><!-- /input-group -->
+        
+    </div><!-- /.col-lg-6 -->
+</div>*@
+
+<div id="chat-conversation">
+    <input type="text" id="chat-message" />
+    <input type="button" id="sendmessage" value="Send" />
+    <ul id="discussion"></ul>
+</div>
+
+<div class="clear-floats"></div>
+
+<script "text/javascript">
+var username='@User.Identity.Name';
+var photoid=@Model.IdFoto;
+</script>
+
+<script src="@Url.Content("~/Scripts/jquery.signalR-2.2.0.min.js")"></script>
+
+<script type="text/javascript"
+        src="@Url.Content("~/signalr/hubs")">
+</script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/ChatRoom.js")"></script>

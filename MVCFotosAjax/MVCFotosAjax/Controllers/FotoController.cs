@@ -141,5 +141,19 @@ namespace MVCFotosAjax.Controllers
             }
             return response;
         }
+
+        #region CHAT
+        [Authorize]
+        public ActionResult Chat(int id)
+        {
+            Foto photo= Context.Fotos.Find(f => f.IdFoto == id);
+            if (photo==null)
+            {
+                return HttpNotFound();
+            }
+            return View("Chat",photo);
+        }
+
+        #endregion
     }
 }

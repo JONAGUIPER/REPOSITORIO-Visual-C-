@@ -81,6 +81,9 @@
         </div>
     </div>
 </div>
+<div id="chataboutthisphoto">
+    @Html.ActionLink("Ir a Chat", "Chat", new { id = Model.IdFoto })
+</div>
 
 <div id="addtofavorites">
     @Ajax.ActionLink("Añadir a Favoritas", "AddFavoritas", "Foto", new { id = Model.IdFoto },
