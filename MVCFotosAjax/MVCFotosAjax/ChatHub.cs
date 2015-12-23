@@ -9,7 +9,7 @@ namespace MVCFotosAjax
     {
         public Task Join(int photoId)
         {
-            return Groups.Add(Context.ConnectionId, "PhotoId"+ photoId);
+            return Groups.Add(Context.ConnectionId, "Photo"+ photoId);
         }
 
         public Task Send(string userName, int photoId, string message)

@@ -3,7 +3,8 @@
     chat.client.addMessage = function (name, message) {
         var encodedName = $('<div />').text(name).html();
         var encodedMessage = $('<div />').text(message).html();
-        var listItem = '<li>' + encodedName + ': ' + encodedMessage + '</li>';
+        var listItem = '<dt>' + encodedName + ': </dt><dd>' + encodedMessage + '</dd>';
+        console.log(listItem);
         $('#discussion').append(listItem);
     };
     $('#chat-message').focus();
@@ -14,6 +15,8 @@
                 chat.server.send(username, photoid, $('#chat-message').val());
                 $('#chat-message').val('').focus();
             });
+        }) .fail(function (error) {
+            console.log('Invocation of start failed. Error: ' + error)
         });
     });
 

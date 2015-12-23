@@ -29,7 +29,7 @@ namespace MVCFotosAjax.Controllers
             }
             else
             {
-                style = "background-color:#dc9797";
+                style = "background-color:white";
             }
             return Content(style);
         }
